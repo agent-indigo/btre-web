@@ -3,7 +3,13 @@ from django.shortcuts import render
 # Create your views here.
 
 def index(request):
-    return render(request, 'pages/index.html')
+    context = {
+        'page_title': 'Home'
+    }
+    return render(request, 'pages/index.html', context)
 
 def about(request):
-    return render(request, 'pages/about.html')
+    context = {
+        'page_title': 'About'
+    }
+    return render(request, 'pages/about.html', context)
