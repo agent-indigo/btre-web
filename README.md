@@ -6,7 +6,7 @@ This is the BT Real Estate project from Brad Traversy's 2019 Python Django Dev t
 
 I made the following modifications:
 
-- Outsourced CSS & JS libraries from CDNs instead of bundling them locally
+- Fetch CSS & JS libraries from CDNs instead of bundling them locally
 
 - Added requirements.txt
 
