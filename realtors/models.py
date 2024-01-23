@@ -6,7 +6,6 @@ from datetime import datetime
 class Realtor(models.Model):
     first = models.CharField()
     last = models.CharField()
-    name = f"{first} + ' ' + {last}"
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
     description = models.TextField(blank=True)
     phone = models.CharField()
@@ -14,4 +13,4 @@ class Realtor(models.Model):
     is_mvp = models.BooleanField(default=False)
     hire_date = models.DateTimeField(default=datetime.now, blank=True)
     def __str__(self):
-        return self.email
+        return f"{self.first} {self.last}"
