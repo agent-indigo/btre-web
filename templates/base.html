@@ -24,7 +24,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js" integrity="sha512-nUUXyEC/xe6BRSl6eTPMaXErp5wdoftIGgrCBRd51MmwMn9PnN+X2usTJb7sGphsXtKT335xWAbccalopgcjNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- App -->
     <script type="module" src="{% static 'App.js' %}"></script>
-    <title>BT Real Estate</title>
+    <title>BT Real Estate {% block title %}{% endblock %}</title>
 </head>
 <body>
     <!-- top bar -->
