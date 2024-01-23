@@ -39,6 +39,11 @@
         </ul>
         <ul class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
+            {% if user.is_staff %}
+              <a href="{% url 'admin:index' %}" class="nav-link">
+                Staff Office
+              </a>
+            {% endif %}
             <li
             {% if 'dashboard' in request.path %}
               class="nav-item active mr-3"
