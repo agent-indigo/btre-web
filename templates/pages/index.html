@@ -4,6 +4,8 @@
  | Welcome
 {% endblock %}
 {% block content %}
+<!-- alert -->
+{% include 'partials/_alert.html' %}
 <!-- Showcase -->
   <section id="showcase">
     <div class="container text-center">
@@ -75,9 +77,6 @@
       </div>
     </div>
   </section>
-  <br>
-  <!-- alert -->
-  {% include 'partials/_alert.html' %}
   <!-- Listings -->
   <section id="listings" class="py-5">
     <div class="container">
