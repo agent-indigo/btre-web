@@ -8,6 +8,8 @@ I made the following modifications:
 
 - Third party resources retrieved from CDNs instead of locally bundled
 
+- Redirect staff members to admin area after logging in through user-facing login page
+
 - Added a nav link to the admin area that only appears when a staff member is logged in
 
 - Added a favicon

@@ -1,11 +1,18 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
+from django.urls import reverse
+
+from contacts.models import Contact
 
 # Create your views here.
 
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+    user_contacts = Contact.objects.order_by('-contact_date').filter(user_id=request.user.id)
+    context = {
+        'contacts': user_contacts
+    }
+    return render(request, 'accounts/dashboard.html', context)
 
 def login(request):
     if request.method == 'POST':
@@ -14,8 +21,11 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            messages.success(request, 'You are now logged in.')
-            return redirect('dashboard')
+            if user.is_staff:
+                return redirect(reverse('admin:index'))
+            else:
+                messages.success(request, 'You are now logged in.')
+                return redirect('dashboard')
         else:
             messages.error(request, 'Invalid credentials.')
             return redirect('login')
