@@ -10,4 +10,6 @@ I made the following modifications:
 
 - Added a nav link to the admin area that only appears when a staff member is logged in
 
+- Added a favicon
+
 - Other minor modifications
