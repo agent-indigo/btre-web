@@ -12,7 +12,8 @@ img {
   text-transform: uppercase; }
 
 .social a {
-  margin-right: 0.4rem; }
+  margin-right: 0.4rem;
+  text-decoration: none; }
 
 #showcase {
   background: url(../images/showcase.jpg) no-repeat top center fixed/cover;
