@@ -118,6 +118,9 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
+# Import local settings
+# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
+
 try:
     from local_settings import *
 except ImportError:
