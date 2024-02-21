@@ -123,5 +123,5 @@ MESSAGE_TAGS = {
 
 try:
     from local_settings import *
-except ImportError:
-    print('Error importing local_settings.py.')
+except ImportError as importError:
+    print(f'Error importing local_settings.py: "{importError}".')
