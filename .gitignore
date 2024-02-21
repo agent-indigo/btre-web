@@ -8,3 +8,6 @@ media/
 static/
 **/db.sqlite3
 **/local_settings.py
+btre 2/
+**/*.zip
+**/*.sql

@@ -8,8 +8,12 @@ from contacts.models import Contact
 # Create your views here.
 
 def dashboard(request):
+    breadcrumb = [
+        {'label': 'Dashboard', 'url': None}
+    ]
     user_contacts = Contact.objects.order_by('-contact_date').filter(user_id=request.user.id)
     context = {
+        'breadcrumb': breadcrumb,
         'contacts': user_contacts
     }
     return render(request, 'accounts/dashboard.html', context)

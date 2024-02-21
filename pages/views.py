@@ -19,6 +19,10 @@ def index(request):
     return render(request, 'pages/index.html', context)
 
 def about(request):
+    breadcrumb = [
+        {'label': 'About', 'url': None}
+    ]
+
     # get all realtors
     realtors = Realtor.objects.order_by('-hire_date')
 
@@ -26,6 +30,7 @@ def about(request):
     mvps = Realtor.objects.all().filter(is_mvp=True)
 
     context = {
+        'breadcrumb': breadcrumb,
         'mvps': mvps,
         'realtors': realtors
     }

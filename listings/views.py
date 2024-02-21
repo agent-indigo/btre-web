@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, render
-from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.core.paginator import Paginator
+from django.urls import reverse
 
 from .options import beds, prices, states
 from .models import Listing
@@ -7,6 +8,10 @@ from .models import Listing
 # Create your views here.
 
 def index(request):
+    breadcrumb = [
+        {'label': 'Listings', 'url': None}
+    ]
+
     listings = Listing.objects.order_by('-list_date').filter(is_published=True)
 
     paginator = Paginator(listings, 6)
@@ -14,21 +19,33 @@ def index(request):
     paged_listings = paginator.get_page(page)
 
     context = {
+        'breadcrumb': breadcrumb,
         'listings': paged_listings
     }
 
     return render(request, 'listings/listings.html', context)
 
 def listing(request, listing_id):
+    breadcrumb = [
+        {'label': 'Listings', 'url': reverse('listings')},
+        {'label': 'Listing Detail', 'url': None}
+    ]
+
     listing = get_object_or_404(Listing, pk=listing_id)
 
     context = {
+        'breadcrumb': breadcrumb,
         'listing': listing
     }
 
     return render(request, 'listings/listing.html', context)
 
 def search(request):
+    breadcrumb = [
+        {'label': 'Listings', 'url': reverse('listings')},
+        {'label': 'Search', 'url': None}
+    ]
+
     queryset_list = Listing.objects.order_by('-list_date')
 
     # keywords
@@ -62,6 +79,7 @@ def search(request):
             queryset_list = queryset_list.filter(price__lte=price)
 
     context = {
+        'breadcrumb': breadcrumb,
         'beds': beds,
         'listings': queryset_list,
         'prices': prices,
