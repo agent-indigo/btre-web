@@ -12,7 +12,15 @@ I made the following modifications:
 
 - Added a nav link to the admin area that only appears when a staff member is logged in
 
-- Moved the breadcrumb into a partial
+- Moved the following into partials:
+
+  - Breadcrumb
+
+  - Listings
+
+  - Search
+
+  - Inner Showcase
 
 - Added a favicon
 

@@ -4,17 +4,8 @@
  | About Us
 {% endblock %}
 {% block content %}
-<!-- Showcase -->
-  <section id="showcase-inner" class="py-5 text-white">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-md-12">
-          <h1 class="display-4">About BT Real Estate</h1>
-          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Showcase -->
+  {% include 'partials/_showcase-inner.html' with h1="About BT Real Estate" lead="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!" %}
   <!-- Breadcrumb -->
   {% include 'partials/_breadcrumb.html' %}
   <section id="about" class="py-4">

@@ -26,9 +26,10 @@ def index(request):
     return render(request, 'listings/listings.html', context)
 
 def listing(request, listing_id):
+    listing = get_object_or_404(Listing, pk=listing_id)
     breadcrumb = [
         {'label': 'Listings', 'url': reverse('listings')},
-        {'label': 'Listing Detail', 'url': None}
+        {'label': listing.title, 'url': None}
     ]
 
     listing = get_object_or_404(Listing, pk=listing_id)

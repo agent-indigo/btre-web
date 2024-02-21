@@ -3,16 +3,8 @@
  | Account Dashboard
 {% endblock %}
 {% block content %}
-  <section id="showcase-inner" class="py-5 text-white">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-md-12">
-          <h1 class="display-4">User Dashboard</h1>
-          <p class="lead">Manage your BT Real Estate account</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Showcase -->
+  {% include 'partials/_showcase-inner.html' with h1="User Dashboard" lead="Manage your BT Real Estate account" %}
   <!-- Breadcrumb -->
   {% include 'partials/_breadcrumb.html' %}
   <!-- alert -->
