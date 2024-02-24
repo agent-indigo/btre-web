@@ -5,7 +5,7 @@
 .venv/
 **/__pycache__/
 media/
-static/
+/static/
 **/db.sqlite3
 **/local_settings.py
 btre 2/
