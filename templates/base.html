@@ -127,7 +127,7 @@
                 <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
               </li>
               <li class="nav-item mr-3">
-                <a href="javascript:{document.querySelector('#logout').submit()}" class="nav-link">
+                <a href="#" id="logout" class="nav-link">
                   <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
                 <form action="{% url 'logout' %}" method="POST" id="logout">
@@ -156,7 +156,7 @@
     {% endblock %}
     <!-- footer -->
     <footer id="main-footer" class="py-4 bg-primary text-white text-center">
-      Copyright &copy;<span class="year"></span> BT Real Estate
+      Copyright &copy;<span id="year"></span> BT Real Estate
     </footer>
   </body>
 </html>
