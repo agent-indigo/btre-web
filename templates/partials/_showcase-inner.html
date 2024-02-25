@@ -1,9 +1,6 @@
-<section id="showcase-inner" 
-  {% if h1|default:'' == '' %} 
-    class="showcase-search py-5 text-white"
-  {% else %}
-    class="py-5 text-white"
-  {% endif %}
+<section
+  id="showcase-inner"
+  class="{% if h1|default:'' == '' %}showcase-search {% endif %}py-5 text-white"
 >
   <div class="container">
     <div class="row text-center">
@@ -14,7 +11,10 @@
           <h1 class="display-4">{{ h1 }}</h1>
           <p class="lead">
             {% if listing.title %}
-              <i class="fas fa-map-marker"></i> {{ listing.city }} {{ listing.state }}, {{ listing.zipcode }}
+              <i class="fas fa-map-marker"></i>
+              {{ listing.city }}
+              {{ listing.state }},
+              {{ listing.zipcode }}
             {% else %}
               {{ lead }}
             {% endif %}

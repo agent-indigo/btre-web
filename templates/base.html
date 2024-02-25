@@ -1,168 +1,162 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- favicon -->
-  <link rel="icon" href="{% static 'images/logo.png' %}">
-  <!-- CSS -->
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" integrity="sha512-KulI0psuJQK8UMpOeiMLDXJtGOZEBm8RZNTyBBHIWqoXoPMFcw+L5AEo0YMpsW8BfiuWrdD1rH6GWGgQBF59Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Custom Bootstrap Theme -->
-  <link rel="stylesheet" href="{% static 'css/bootstrap.custom.css' %}">
-  <!-- Lightbox -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" integrity="sha512-EIeyz8jygFLurz4RBJgtb2xBcR7uGWs6Gr6qygPowG13vYlYIaln5FyH+DN+da3jwPtb3Dq+pLA9yTR+uB3FYg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- etc -->
-  <link rel="stylesheet" href="{% static 'css/etc.css' %}">
-  <!-- JS -->
-  <!-- jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- Popper -->
-  <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/esm/popper.min.js" integrity="sha512-YI+vXi55lXWcXniBdpXEkzUje+JfX6WMDHXw6q0ns2VkjMN4YvoZMVucrDWU4A+Kmkgsf4z5GHRumwO9ej1JXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- Bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- Lightbox -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js" integrity="sha512-nUUXyEC/xe6BRSl6eTPMaXErp5wdoftIGgrCBRd51MmwMn9PnN+X2usTJb7sGphsXtKT335xWAbccalopgcjNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- App -->
-  <script type="module" src="{% static 'App.js' %}"></script>
-  <title>{% block title %}{% endblock %} | BT Real Estate</title>
-</head>
-<body>
-  <!-- top bar -->
-  <section id="top-bar" class="p-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <i class="fas fa-phone"></i> (617)-555-5555
-        </div>
-        <div class="col-md-4">
-          <i class="fas fa-envelope-open"></i> contact@btrealestate.co
-        </div>
-        <div class="col-md-4">
-          <div class="social text-right">
-            <a href="#">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-pinterest"></i>
-            </a>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <link rel="icon" href="{% static 'images/logo.png' %}">
+    <!-- CSS -->
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css"
+      integrity="sha512-KulI0psuJQK8UMpOeiMLDXJtGOZEBm8RZNTyBBHIWqoXoPMFcw+L5AEo0YMpsW8BfiuWrdD1rH6GWGgQBF59Lg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Custom Bootstrap Theme -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.custom.css' %}">
+    <!-- Lightbox -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css"
+      integrity="sha512-EIeyz8jygFLurz4RBJgtb2xBcR7uGWs6Gr6qygPowG13vYlYIaln5FyH+DN+da3jwPtb3Dq+pLA9yTR+uB3FYg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- etc -->
+    <link rel="stylesheet" href="{% static 'css/etc.css' %}">
+    <!-- JS -->
+    <!-- jQuery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+      integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer">
+    </script>
+    <!-- Popper -->
+    <script
+      type="module"
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/esm/popper.min.js"
+      integrity="sha512-YI+vXi55lXWcXniBdpXEkzUje+JfX6WMDHXw6q0ns2VkjMN4YvoZMVucrDWU4A+Kmkgsf4z5GHRumwO9ej1JXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer">
+    </script>
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer">
+    </script>
+    <!-- Lightbox -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"
+      integrity="sha512-nUUXyEC/xe6BRSl6eTPMaXErp5wdoftIGgrCBRd51MmwMn9PnN+X2usTJb7sGphsXtKT335xWAbccalopgcjNA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer">
+    </script>
+    <!-- App -->
+    <script type="module" src="{% static 'App.js' %}"></script>
+    <title>{% block title %}{% endblock %} | BT Real Estate</title>
+  </head>
+  <body>
+    <noscript>We are sorry, but you will not be able to use our site without first enabling JavaScript in your browser.</noscript>
+    <!-- top bar -->
+    <section id="top-bar" class="p-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <i class="fas fa-phone"></i> (617)-555-5555
+          </div>
+          <div class="col-md-4">
+            <i class="fas fa-envelope-open"></i> contact@btrealestate.co
+          </div>
+          <div class="col-md-4">
+            <div class="social text-right">
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-pinterest"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-    <div class="container">
-    <a class="navbar-brand" href="{% url 'index' %}">
-        <img src="{% static 'images/logo.png' %}" class="logo" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <ul class="navbar-nav">
-        <li
-            {% if '/' == request.path %}
-            class="nav-item active mr-3"
-            {% else %}
-            class="nav-item mr-3"
-            {% endif %}
-        >
-            <a class="nav-link" href="{% url 'index' %}">Home</a>
-        </li>
-        <li
-            {% if 'about' in request.path %}
-            class="nav-item active mr-3"
-            {% else %}
-            class="nav-item mr-3"
-            {% endif %}
-        >
-            <a class="nav-link" href="{% url 'about' %}">About</a>
-        </li>
-        <li
-            {% if 'listings' in request.path %}
-            class="nav-item active mr-3"
-            {% else %}
-            class="nav-item mr-3"
-            {% endif %}
-        >
-            <a class="nav-link" href="{% url 'listings' %}">Featured Listings</a>
-        </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-        {% if user.is_authenticated %}
-            {% if user.is_staff %}
-            <li class="nav-item mr-3">
-            <a href="{% url 'admin:index' %}" class="nav-link">
-                Staff Office
-            </a>
+    </section>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <img src="{% static 'images/logo.png' %}" class="logo" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <ul class="navbar-nav">
+            <li class="{% if '/' == request.path %}active {% endif %}nav-item mr-3">
+              <a class="nav-link" href="{% url 'index' %}">Home</a>
             </li>
-            {% endif %}
-            <li
-            {% if 'dashboard' in request.path %}
-            class="nav-item active mr-3"
+            <li class="{% if 'about' in request.path %}active {% endif %}nav-item mr-3">
+              <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="{% if 'listings' in request.path %}active {% endif %}nav-item mr-3">
+              <a class="nav-link" href="{% url 'listings' %}">Featured Listings</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+              {% if user.is_staff %}
+                <li class="nav-item mr-3">
+                  <a href="{% url 'admin:index' %}" class="nav-link">Staff Office</a>
+                </li>
+              {% endif %}
+              <li class="{% if 'dashboard' in request.path %}active {% endif %}nav-item mr-3">
+                <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+              </li>
+              <li class="nav-item mr-3">
+                <a href="javascript:{document.querySelector('#logout').submit()}" class="nav-link">
+                  <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+                <form action="{% url 'logout' %}" method="POST" id="logout">
+                  {% csrf_token %}
+                  <input type="hidden">
+                </form>
+              </li>
             {% else %}
-            class="nav-item mr-3"
+              <li class="{% if 'register' in request.path %}active {% endif %}nav-item mr-3">
+                <a class="nav-link" href="{% url 'register' %}">
+                    <i class="fas fa-user-plus"></i> Register
+                </a>
+              </li>
+              <li class="{% if 'login' in request.path %}active {% endif %}nav-item mr-3">
+                <a class="nav-link" href="{% url 'login' %}">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+              </li>
             {% endif %}
-            >
-            <a class="nav-link" href="{% url 'dashboard' %}">
-                Dashboard
-            </a>
-            </li>
-            <li class="nav-item mr-3">
-            <a href="javascript:{document.querySelector('#logout').submit()}" class="nav-link">
-                <i class="fas fa-sign-out-alt"></i> Logout
-            </a>
-            <form action="{% url 'logout' %}" method="POST" id="logout">
-                {% csrf_token %}
-                <input type="hidden">
-            </form>
-            </li>
-        {% else %}
-            <li
-            {% if 'register' in request.path %}
-            class="nav-item active mr-3"
-            {% else %}
-            class="nav-item mr-3"
-            {% endif %}
-            >
-            <a class="nav-link" href="{% url 'register' %}">
-                <i class="fas fa-user-plus"></i> Register</a>
-            </li>
-            <li
-            {% if 'login' in request.path %}
-            class="nav-item active mr-3"
-            {% else %}
-            class="nav-item mr-3"
-            {% endif %}
-            >
-            <a class="nav-link" href="{% url 'login' %}">
-                <i class="fas fa-sign-in-alt"></i>
-                Login</a>
-            </li>
-        {% endif %}
-        </ul>
-    </div>
-    </div>
-  </nav>
-  <!-- content -->
-  {% block content %}
-  {% endblock %}
-  <!-- footer -->
-  <footer id="main-footer" class="py-4 bg-primary text-white text-center">
-    Copyright &copy;
-    <span class="year"></span> BT Real Estate
-  </footer>
-</body>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- content -->
+    {% block content %}
+    {% endblock %}
+    <!-- footer -->
+    <footer id="main-footer" class="py-4 bg-primary text-white text-center">
+      Copyright &copy;<span class="year"></span> BT Real Estate
+    </footer>
+  </body>
 </html>
