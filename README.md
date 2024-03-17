@@ -24,8 +24,6 @@ I made the following modifications:
 
 - Added a favicon
 
-- Added a Dockerfile
-
 - Other minor modifications
 
 - Bug fixes
