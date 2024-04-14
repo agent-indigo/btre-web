@@ -1,13 +1,10 @@
-**/.DS_Store
-**/*.log
-**/*.pot
-**/*.pyc
+.DS_Store
 .venv/
-**/__pycache__/
-media/
+__pycache__/
+/media/
 /static/
-**/db.sqlite3
-**/local_settings.py
+db.sqlite3
+local_settings.py
 btre 2/
-**/*.zip
-**/*.sql
+*.zip
+*.sql
