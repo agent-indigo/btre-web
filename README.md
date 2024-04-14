@@ -12,7 +12,7 @@ I made the following modifications:
 
 - Added a nav link to the admin area that only appears when a staff member is logged in
 
-- Moved JS embedded in nav to main.js
+- Moved JS embedded in nav to base.js
 
 - Moved the following into partials:
 
