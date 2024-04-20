@@ -1,6 +1,11 @@
 from django.shortcuts import redirect
 from django.contrib import messages
-# from django.core.mail import send_mail
+from django.core.mail import send_mail
+
+try:
+    from local_settings import SEND_EMAILS
+except ImportError as importError:
+    print(f'Error loading configuration:\n{importError}')
 
 from .models import Contact
 
@@ -31,13 +36,14 @@ def contact(request):
         contact.save()
 
         # send email
-        # send_mail(
-        #     'Property Listing Inquiry',
-        #     f'There has been an inquiry regarding {listing}.',
-        #     '',
-        #     [realtor_email],
-        #     fail_silently=False
-        # )
+        if SEND_EMAILS:
+            send_mail(
+                'Property Listing Inquiry',
+                f'There has been an inquiry regarding {listing}.',
+                '',
+                [realtor_email],
+                fail_silently=False
+            )
 
         messages.success(request, 'Your inquiry has been sent to our realtor. They will reply soon!')
         return redirect('/listings/'+listing_id)
