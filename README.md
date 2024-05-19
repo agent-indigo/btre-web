@@ -26,9 +26,9 @@ I made the following modifications:
 
 - Added a favicon
 
-- Added a local settings template
+- Set up dotenv and added a template
 
-- Added a local setting to enable/disable sending emails
+- Added a setting to enable/disable sending emails
 
 - Other minor modifications
 

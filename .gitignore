@@ -1,7 +1,6 @@
-.DS_Store
+**/.DS_Store
+**/*.env
+**/__pycache__/
 .venv/
-__pycache__/
-/media/
-/static/
-db.sqlite3
-local_settings.py
+media/
+static/

@@ -11,15 +11,45 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
 
-# Import local settings
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-try:
-    from local_settings import *
-except ImportError as importError:
-    print(f'Error loading configuration:\n{importError}')
+load_dotenv()
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.getenv('STR_SECRET_KEY')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.getenv('BOOL_ENABLE_DEBUG')
+
+ALLOWED_HOSTS = os.getenv('CSV_ALLOWED_HOSTS').split(',')
+
+# Database
+# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': os.getenv('STR_SQL_DB_ENGINE'),
+        'NAME': os.getenv('STR_SQL_DB_NAME'),
+        'USER': os.getenv('STR_SQL_DB_USER'),
+        'PASSWORD': os.getenv('STR_SQL_DB_PW'),
+        'HOST': os.getenv('STR_SQL_DB_HOST'),
+        'PORT': os.getenv('INT_SQL_DB_PORT'),
+        'OPTIONS': {
+            'sslmode': os.getenv('STR_SQL_DB_SSL_MODE')
+        }
+    }
+}
+
+# email config
+EMAIL_HOST = os.getenv('STR_EMAIL_HOST')
+EMAIL_PORT = os.getenv('INT_EMAIL_PORT')
+EMAIL_HOST_USER = os.getenv('STR_EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.getenv('STR_EMAIL_PW')
+EMAIL_USE_TLS = os.getenv('BOOL_EMAIL_USE_TLS')
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

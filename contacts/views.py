@@ -2,12 +2,13 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.core.mail import send_mail
 
-try:
-    from local_settings import SEND_EMAILS
-except ImportError as importError:
-    print(f'Error loading configuration:\n{importError}')
+from os import getenv
+from dotenv import load_dotenv
 
 from .models import Contact
+
+load_dotenv()
+SEND_EMAILS = getenv('BOOL_SEND_EMAILS')
 
 # Create your views here.
 
