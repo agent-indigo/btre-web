@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from .models import Contact
 
 load_dotenv()
-SEND_EMAILS = getenv('BOOL_SEND_EMAILS')
+SEND_EMAILS = bool(getenv('BOOL_SEND_EMAILS'))
 
 # Create your views here.
 
