@@ -1,3 +1,4 @@
+# NOTE: Leave BOOL entries blank for False
 STR_SECRET_KEY = 
 BOOL_ENABLE_DEBUG = 
 CSV_ALLOWED_HOSTS = 
