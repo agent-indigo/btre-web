@@ -1,14 +1,9 @@
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.core.mail import send_mail
-
-from os import getenv
-from dotenv import load_dotenv
+from django.conf import settings
 
 from .models import Contact
-
-load_dotenv()
-SEND_EMAILS = bool(getenv('BOOL_SEND_EMAILS'))
 
 # Create your views here.
 
@@ -37,7 +32,7 @@ def contact(request):
         contact.save()
 
         # send email
-        if SEND_EMAILS:
+        if settings.SEND_EMAILS:
             send_mail(
                 'Property Listing Inquiry',
                 f'There has been an inquiry regarding {listing}.',

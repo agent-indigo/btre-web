@@ -18,6 +18,9 @@ import os
 
 load_dotenv()
 
+# Send email switch
+SEND_EMAILS = bool(os.getenv('BOOL_SEND_EMAILS'))
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('STR_SECRET_KEY')
 
