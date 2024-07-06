@@ -8,7 +8,7 @@ I made the following modifications:
 
 - Third party resources retrieved from CDNs instead of locally bundled
 
-- Redirect staff members to admin area after logging in through user-facing login page
+- Redirect staff to admin area after logging in through user-facing login page
 
 - Added a link in the `nav` to the admin area that only appears when a staff member is logged in
 
@@ -26,10 +26,10 @@ I made the following modifications:
 
 - Added a favicon
 
-- Set up `dotenv` and added a template
-
 - Added a setting to enable/disable sending emails
 
-- Other minor modifications
+- Set up `dotenv` and added a template
 
 - Bug fixes
+
+- Other minor modifications
