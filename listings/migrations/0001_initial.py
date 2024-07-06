@@ -3,6 +3,7 @@
 import datetime
 import django.db.models.deletion
 from django.db import migrations, models
+from cloudinary.models import CloudinaryField
 
 
 class Migration(migrations.Migration):
@@ -30,13 +31,13 @@ class Migration(migrations.Migration):
                 ('garage', models.IntegerField(default=0)),
                 ('sqft', models.DecimalField(decimal_places=1, max_digits=6)),
                 ('lot_size', models.DecimalField(decimal_places=1, max_digits=5)),
-                ('photo_main', models.ImageField(upload_to='photos/%Y/%m/%d/')),
-                ('photo_1', models.ImageField(blank=True, upload_to='photos/%Y/%m/%d/')),
-                ('photo_2', models.ImageField(blank=True, upload_to='photos/%Y/%m/%d/')),
-                ('photo_3', models.ImageField(blank=True, upload_to='photos/%Y/%m/%d/')),
-                ('photo_4', models.ImageField(blank=True, upload_to='photos/%Y/%m/%d/')),
-                ('photo_5', models.ImageField(blank=True, upload_to='photos/%Y/%m/%d/')),
-                ('photo_6', models.ImageField(blank=True, upload_to='photos/%Y/%m/%d/')),
+                ('photo_main', CloudinaryField('image')),
+                ('photo_1', CloudinaryField('image', blank=True)),
+                ('photo_2', CloudinaryField('image', blank=True)),
+                ('photo_3', CloudinaryField('image', blank=True)),
+                ('photo_4', CloudinaryField('image', blank=True)),
+                ('photo_5', CloudinaryField('image', blank=True)),
+                ('photo_6', CloudinaryField('image', blank=True)),
                 ('is_published', models.BooleanField(default=True)),
                 ('list_date', models.DateTimeField(blank=True, default=datetime.datetime.now)),
                 ('realtor', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='realtors.realtor')),

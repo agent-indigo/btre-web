@@ -6,6 +6,8 @@ This is the BT Real Estate project from Brad Traversy's 2019 Python Django Dev t
 
 I made the following modifications:
 
+- Moved uploaded image storage to Cloudinary
+
 - Added a setting to enable/disable sending emails
 
 - Set up `dotenv` and added a template
