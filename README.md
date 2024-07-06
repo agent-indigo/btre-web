@@ -6,13 +6,13 @@ This is the BT Real Estate project from Brad Traversy's 2019 Python Django Dev t
 
 I made the following modifications:
 
-- Third party resources retrieved from CDNs instead of locally bundled
+- Added a setting to enable/disable sending emails
 
-- Redirect staff to admin area after logging in through user-facing login page
+- Set up `dotenv` and added a template
+
+- Staff get redirected to the admin area after logging in through the user-facing login page
 
 - Added a link in the `nav` to the admin area that only appears when a staff member is logged in
-
-- Moved JavaScript embedded in the `nav` to `btre/static/app.js`
 
 - Moved the following into partials:
 
@@ -26,9 +26,9 @@ I made the following modifications:
 
 - Added a favicon
 
-- Added a setting to enable/disable sending emails
+- Moved JavaScript that was embedded in the `nav` to `btre/static/app.js`
 
-- Set up `dotenv` and added a template
+- Third party resources are retrieved from CDNs instead of locally bundled
 
 - Bug fixes
 
