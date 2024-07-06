@@ -10,9 +10,9 @@ I made the following modifications:
 
 - Redirect staff members to admin area after logging in through user-facing login page
 
-- Added a nav link to the admin area that only appears when a staff member is logged in
+- Added a link in the `nav` to the admin area that only appears when a staff member is logged in
 
-- Moved JS embedded in nav to app.js
+- Moved JavaScript embedded in the `nav` to `btre/static/app.js`
 
 - Moved the following into partials:
 
@@ -26,7 +26,7 @@ I made the following modifications:
 
 - Added a favicon
 
-- Set up dotenv and added a template
+- Set up `dotenv` and added a template
 
 - Added a setting to enable/disable sending emails
 
