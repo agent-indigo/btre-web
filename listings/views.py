@@ -27,12 +27,11 @@ def index(request):
 
 def listing(request, listing_id):
     listing = get_object_or_404(Listing, pk=listing_id)
+
     breadcrumb = [
         {'label': 'Listings', 'url': reverse('listings')},
         {'label': listing.title, 'url': None}
     ]
-
-    listing = get_object_or_404(Listing, pk=listing_id)
 
     context = {
         'breadcrumb': breadcrumb,

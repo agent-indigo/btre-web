@@ -13,10 +13,21 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 load_dotenv()
+
+# Cloudinary
+cloudinary.config(
+    cloud_name = os.getenv('STR_CLOUDINARY_CLOUD_NAME'),
+    upload_folder = os.getenv('STR_CLOUDINARY_FOLDER_NAME'),
+    api_key = os.getenv('STR_CLOUDINARY_API_KEY'),
+    api_secret = os.getenv('STR_CLOUDINARY_API_SECRET')
+)
 
 # Send email switch
 SEND_EMAILS = bool(os.getenv('BOOL_SEND_EMAILS'))
@@ -148,10 +159,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# media directory
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
 
 # messages
 from django.contrib.messages import constants as messages
