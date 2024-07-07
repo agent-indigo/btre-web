@@ -11,7 +11,7 @@
   <section id="about" class="py-4">
     <div class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <h2>We Search For The Perfect Home</h2>
           <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
           <img src="{% static 'images/about.jpg' %}" alt="">
@@ -21,22 +21,6 @@
             perferendis? Exercitationem at quaerat commodi id libero eveniet harum perferendis laborum
             molestias quia.
           </p>
-        </div>
-        <div class="col-md-4">
-          {% if mvps %}
-            {% for mvp in mvps %}
-              <div class="card">
-                <img class="card-img-top" src="{{ mvp.photo.url }}" alt="Seller of the month">
-                <div class="card-body">
-                  <h5 class="card-title">Seller Of The Month</h5>
-                  <h6 class="text-secondary">{{ mvp.first }} {{ mvp.last }}</h6>
-                  <p class="card-text">
-                    {{ mvp.description }}
-                  </p>
-                </div>
-              </div>
-            {% endfor %}
-          {% endif %}
         </div>
       </div>
     </div>
@@ -56,15 +40,7 @@
         {% if realtors %}
           {% for realtor in realtors %}
             <div class="col-md-4">
-              <img src="{{ realtor.photo.url }}" alt="" class="rounded-circle mb-3">
-              <h4>{{ realtor.first }} {{ realtor.last }}</h4>
-              <p class="text-success">
-                <i class="fas fa-award text-success mb-3"></i> Realtor</p>
-              <hr>
-              <p>
-                <i class="fas fa-phone"></i> {{ realtor.phone }}</p>
-              <p>
-                <i class="fas fa-envelope-open"></i> {{ realtor.email }}</p>
+              {% include 'partials/_realtor.html' with realtor=realtor %}
             </div>
           {% endfor %}
         {% else %}
