@@ -26,9 +26,17 @@ I made the following modifications:
 
   - Inner Showcase
 
+  - Realtor card
+
 - Added a favicon
 
+- Added dynamic page titles
+
 - Moved JavaScript that was embedded in the `nav` to `btre/static/app.js`
+
+- Added a `noscript` tag
+
+- Added `tel` and `mailto` links
 
 - Third party resources are retrieved from CDNs instead of locally bundled
 

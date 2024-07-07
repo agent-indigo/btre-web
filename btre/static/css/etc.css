@@ -75,6 +75,9 @@ img {
 .listing-preview a {
   position: relative;
 }
+#inquiry-button {
+  cursor: pointer;
+}
 @media (max-width: 991px) {
   #showcase {
     padding-top: 4rem;
