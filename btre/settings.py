@@ -24,10 +24,11 @@ load_dotenv()
 # Cloudinary
 cloudinary.config(
     cloud_name = os.getenv('STR_CLOUDINARY_CLOUD_NAME'),
-    upload_folder = os.getenv('STR_CLOUDINARY_FOLDER_NAME'),
     api_key = os.getenv('STR_CLOUDINARY_API_KEY'),
     api_secret = os.getenv('STR_CLOUDINARY_API_SECRET')
 )
+
+CLOUDINARY_FOLDER = os.getenv('STR_CLOUDINARY_FOLDER_NAME')
 
 # Send email switch
 SEND_EMAILS = bool(os.getenv('BOOL_SEND_EMAILS'))

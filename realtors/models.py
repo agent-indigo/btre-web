@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from datetime import datetime
 from cloudinary.models import CloudinaryField
 
@@ -7,7 +8,7 @@ from cloudinary.models import CloudinaryField
 class Realtor(models.Model):
     first = models.CharField()
     last = models.CharField()
-    photo = CloudinaryField('image')
+    photo = CloudinaryField('image', folder=settings.CLOUDINARY_FOLDER)
     description = models.TextField(blank=True)
     phone = models.CharField()
     email = models.CharField()

@@ -2,6 +2,7 @@
 
 import datetime
 from django.db import migrations, models
+from django.conf import settings
 from cloudinary.models import CloudinaryField
 
 
@@ -19,7 +20,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('first', models.CharField()),
                 ('last', models.CharField()),
-                ('photo', CloudinaryField('image')),
+                ('photo', CloudinaryField('image', folder=settings.CLOUDINARY_FOLDER)),
                 ('description', models.TextField(blank=True)),
                 ('phone', models.CharField()),
                 ('email', models.CharField()),

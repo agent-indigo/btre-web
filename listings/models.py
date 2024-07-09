@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from datetime import datetime
 from cloudinary.models import CloudinaryField
 from realtors.models import Realtor
@@ -19,13 +20,13 @@ class Listing(models.Model):
     garage = models.IntegerField(default=0)
     sqft = models.DecimalField(max_digits=6, decimal_places=1)
     lot_size = models.DecimalField(max_digits=5, decimal_places=1)
-    photo_main = CloudinaryField('image')
-    photo_1 = CloudinaryField('image', blank=True)
-    photo_2 = CloudinaryField('image', blank=True)
-    photo_3 = CloudinaryField('image', blank=True)
-    photo_4 = CloudinaryField('image', blank=True)
-    photo_5 = CloudinaryField('image', blank=True)
-    photo_6 = CloudinaryField('image', blank=True)
+    photo_main = CloudinaryField('image', folder=settings.CLOUDINARY_FOLDER)
+    photo_1 = CloudinaryField('image', folder=settings.CLOUDINARY_FOLDER, blank=True)
+    photo_2 = CloudinaryField('image', folder=settings.CLOUDINARY_FOLDER, blank=True)
+    photo_3 = CloudinaryField('image', folder=settings.CLOUDINARY_FOLDER, blank=True)
+    photo_4 = CloudinaryField('image', folder=settings.CLOUDINARY_FOLDER, blank=True)
+    photo_5 = CloudinaryField('image', folder=settings.CLOUDINARY_FOLDER, blank=True)
+    photo_6 = CloudinaryField('image', folder=settings.CLOUDINARY_FOLDER, blank=True)
     is_published = models.BooleanField(default=True)
     list_date = models.DateTimeField(default=datetime.now, blank=True)
     def __str__(self):
