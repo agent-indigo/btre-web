@@ -31,13 +31,13 @@ cloudinary.config(
 CLOUDINARY_FOLDER = os.getenv('STR_CLOUDINARY_FOLDER_NAME')
 
 # Send email switch
-SEND_EMAILS = bool(os.getenv('BOOL_SEND_EMAILS'))
+SEND_EMAILS = os.getenv('BOOL_SEND_EMAILS').title() == 'True'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('STR_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.getenv('BOOL_ENABLE_DEBUG'))
+DEBUG = os.getenv('BOOL_ENABLE_DEBUG').title() == 'True'
 
 ALLOWED_HOSTS = os.getenv('CSV_ALLOWED_HOSTS').split(',')
 
@@ -63,7 +63,7 @@ EMAIL_HOST = os.getenv('STR_EMAIL_HOST')
 EMAIL_PORT = os.getenv('INT_EMAIL_PORT')
 EMAIL_HOST_USER = os.getenv('STR_EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.getenv('STR_EMAIL_PW')
-EMAIL_USE_TLS = bool(os.getenv('BOOL_EMAIL_USE_TLS'))
+EMAIL_USE_TLS = os.getenv('BOOL_EMAIL_USE_TLS').title() == 'True'
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
