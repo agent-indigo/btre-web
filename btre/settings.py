@@ -53,7 +53,7 @@ DATABASES = {
         'HOST': os.getenv('STR_SQL_DB_HOST'),
         'PORT': os.getenv('INT_SQL_DB_PORT'),
         'OPTIONS': {
-            'sslmode': os.getenv('STR_SQL_DB_SSL_MODE')
+            'sslmode': 'prefer'
         }
     }
 }
