@@ -23,35 +23,35 @@ load_dotenv()
 
 # Cloudinary
 cloudinary.config(
-    cloud_name = os.getenv('STR_CLOUDINARY_CLOUD_NAME'),
-    api_key = os.getenv('STR_CLOUDINARY_API_KEY'),
-    api_secret = os.getenv('STR_CLOUDINARY_API_SECRET')
+    cloud_name = os.getenv('STR_CLOUDINARY_CLOUD_NAME') | '',
+    api_key = os.getenv('STR_CLOUDINARY_API_KEY') | '',
+    api_secret = os.getenv('STR_CLOUDINARY_API_SECRET') | ''
 )
 
-CLOUDINARY_FOLDER = os.getenv('STR_CLOUDINARY_FOLDER_NAME')
+CLOUDINARY_FOLDER = os.getenv('STR_CLOUDINARY_FOLDER_NAME') | 'btre'
 
 # Send email switch
 SEND_EMAILS = os.getenv('BOOL_SEND_EMAILS').title() == 'True'
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('STR_SECRET_KEY')
+SECRET_KEY = os.getenv('STR_SECRET_KEY') | ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('BOOL_ENABLE_DEBUG').title() == 'True'
 
-ALLOWED_HOSTS = os.getenv('CSV_ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = os.getenv('CSV_ALLOWED_HOSTS').split(',') | '*'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('STR_SQL_DB_ENGINE'),
-        'NAME': os.getenv('STR_SQL_DB_NAME'),
-        'USER': os.getenv('STR_SQL_DB_USER'),
-        'PASSWORD': os.getenv('STR_SQL_DB_PW'),
-        'HOST': os.getenv('STR_SQL_DB_HOST'),
-        'PORT': os.getenv('INT_SQL_DB_PORT'),
+        'ENGINE': os.getenv('STR_SQL_DB_ENGINE') | 'django.db.backends.postgresql',
+        'NAME': os.getenv('STR_SQL_DB_NAME') | 'btre',
+        'USER': os.getenv('STR_SQL_DB_USER') | 'postgres',
+        'PASSWORD': os.getenv('STR_SQL_DB_PW') | '',
+        'HOST': os.getenv('STR_SQL_DB_HOST') | 'localhost',
+        'PORT': os.getenv('INT_SQL_DB_PORT') | 5432,
         'OPTIONS': {
             'sslmode': 'prefer'
         }
@@ -59,11 +59,11 @@ DATABASES = {
 }
 
 # email config
-EMAIL_HOST = os.getenv('STR_EMAIL_HOST')
-EMAIL_PORT = os.getenv('INT_EMAIL_PORT')
-EMAIL_HOST_USER = os.getenv('STR_EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.getenv('STR_EMAIL_PW')
-EMAIL_USE_TLS = True
+EMAIL_HOST = os.getenv('STR_EMAIL_HOST') | ''
+EMAIL_PORT = os.getenv('INT_EMAIL_PORT') | 587
+EMAIL_HOST_USER = os.getenv('STR_EMAIL_USER') | ''
+EMAIL_HOST_PASSWORD = os.getenv('STR_EMAIL_PW') | ''
+EMAIL_USE_TLS = os.getenv('BOOL_EMAIL_USE_TLS') == 'True'
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
