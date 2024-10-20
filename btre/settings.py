@@ -63,7 +63,7 @@ EMAIL_HOST = os.getenv('STR_EMAIL_HOST')
 EMAIL_PORT = os.getenv('INT_EMAIL_PORT')
 EMAIL_HOST_USER = os.getenv('STR_EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.getenv('STR_EMAIL_PW')
-EMAIL_USE_TLS = os.getenv('BOOL_EMAIL_USE_TLS').title() == 'True'
+EMAIL_USE_TLS = True
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
