@@ -46,7 +46,7 @@ ALLOWED_HOSTS = os.getenv('CSV_ALLOWED_HOSTS').split(',')
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('STR_SQL_DB_ENGINE', 'django.db.backends.postgresql'),
+        'ENGINE': f'django.db.backends.{os.getenv('ENUM_SQL_DB_DIALECT', 'postgresql')}',
         'NAME': os.getenv('STR_SQL_DB_NAME', 'btre'),
         'USER': os.getenv('STR_SQL_DB_USER', 'postgres'),
         'PASSWORD': os.getenv('STR_SQL_DB_PW', ''),
@@ -58,7 +58,7 @@ DATABASES = {
     }
 }
 
-# email config
+# Email config
 EMAIL_HOST = os.getenv('STR_EMAIL_HOST', 'localhost')
 EMAIL_PORT = os.getenv('INT_EMAIL_PORT', 587)
 EMAIL_HOST_USER = os.getenv('STR_EMAIL_USER', '')
@@ -161,7 +161,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# messages
+# Messages
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
