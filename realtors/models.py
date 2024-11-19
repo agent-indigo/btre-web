@@ -1,14 +1,14 @@
 from django.db import models
-from django.conf import settings
 from datetime import datetime
 from cloudinary.models import CloudinaryField
+from btre.settings import CLOUDINARY_FOLDER
 
 # Create your models here.
 
 class Realtor(models.Model):
     first = models.CharField()
     last = models.CharField()
-    photo = CloudinaryField('image', folder=settings.CLOUDINARY_FOLDER)
+    photo = CloudinaryField('image', folder=CLOUDINARY_FOLDER)
     description = models.TextField(blank=True)
     phone = models.CharField()
     email = models.CharField()
