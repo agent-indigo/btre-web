@@ -31,15 +31,15 @@ cloudinary.config(
 CLOUDINARY_FOLDER = os.getenv('STR_CLOUDINARY_FOLDER_NAME', 'btre')
 
 # Send email switch
-SEND_EMAILS = os.getenv('BOOL_SEND_EMAILS').title() == 'True'
+SEND_EMAILS = os.getenv('BOOL_SEND_EMAILS', 'False').title() == 'True'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('STR_SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('BOOL_ENABLE_DEBUG').title() == 'True'
+DEBUG = os.getenv('BOOL_ENABLE_DEBUG', 'False').title() == 'True'
 
-ALLOWED_HOSTS = os.getenv('CSV_ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = os.getenv('CSV_ALLOWED_HOSTS', '*').split(',')
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -63,7 +63,7 @@ EMAIL_HOST = os.getenv('STR_EMAIL_HOST', 'localhost')
 EMAIL_PORT = os.getenv('INT_EMAIL_PORT', 587)
 EMAIL_HOST_USER = os.getenv('STR_EMAIL_USER', '')
 EMAIL_HOST_PASSWORD = os.getenv('STR_EMAIL_PW', '')
-EMAIL_USE_TLS = os.getenv('BOOL_EMAIL_USE_TLS') == 'True'
+EMAIL_USE_TLS = os.getenv('BOOL_EMAIL_USE_TLS', 'True').title() == 'True'
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
