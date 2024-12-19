@@ -34,6 +34,8 @@ I made the following modifications:
 
 - Moved JavaScript that was embedded in the `nav` to `btre/static/app.js`
 
+- Copyright year in footer retrieved using jinja instead of JS
+
 - Added a `noscript` tag
 
 - Added `tel` and `mailto` links
