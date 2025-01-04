@@ -34,10 +34,10 @@ CLOUDINARY_FOLDER = os.getenv('STR_CLOUDINARY_FOLDER_NAME', 'btre')
 SEND_EMAILS = os.getenv('BOOL_SEND_EMAILS', 'False').title() == 'True'
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('STR_SECRET_KEY', '')
+SECRET_KEY = os.getenv('STR_SECRET_KEY', 'd3v3l0pm3nt53cr3tk3yn0t53cur3@t@11n3v3ru53!npr0duct!0n3v3r!!!')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('BOOL_ENABLE_DEBUG', 'False').title() == 'True'
+DEBUG = os.getenv('BOOL_ENABLE_DEBUG', 'True').title() == 'True'
 
 ALLOWED_HOSTS = os.getenv('CSV_ALLOWED_HOSTS', '*').split(',')
 
