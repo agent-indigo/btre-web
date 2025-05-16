@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  btre-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: btre-web:latest
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8000:8000"

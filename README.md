@@ -42,6 +42,8 @@ I made the following modifications:
 
 - Third party resources are retrieved from CDNs instead of locally bundled
 
+- Added Docker files
+
 - Bug fixes
 
 - Other minor modifications
