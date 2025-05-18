@@ -1,4 +1,5 @@
 FROM nginx:latest
+FROM gunicorn:latest
 FROM python:latest
 WORKDIR /btre-web
 COPY . .
@@ -10,4 +11,4 @@ RUN python3 -m venv .venv  && \
 EXPOSE 80
 EXPOSE 443
 EXPOSE 8000
-CMD ["source", ".venv/bin/activate", "&&", "python", "manage.py", "runserver"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "btre.wsgi:application"]
