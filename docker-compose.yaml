@@ -1,11 +1,25 @@
 version: '3.8'
 services:
-  btre-web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: btre-web:latest
+  database:
+    image: postgres:latest
+    volumes:
+      - database: /var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: btre
+  static:
+    image: nginx:latest
+    volumes:
+      - static:  /usr/share/nginx/html/static
     ports:
       - "80:80"
       - "443:443"
+  btre-web:
+    image: btre-web:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
       - "8000:8000"
