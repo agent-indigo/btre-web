@@ -3,7 +3,7 @@ services:
   database:
     image: postgres:latest
     volumes:
-      - database: /var/lib/postgresql/data
+      - database:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     environment:
@@ -12,7 +12,7 @@ services:
   static:
     image: nginx:latest
     volumes:
-      - static:  /usr/share/nginx/html/static
+      - static:/usr/share/nginx/html/static
     ports:
       - "80:80"
       - "443:443"
