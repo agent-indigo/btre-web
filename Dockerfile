@@ -1,10 +1,12 @@
-FROM nginx:latest
 FROM gunicorn:latest
+FROM nginx:latest
+FROM postgres:latest
 FROM python:latest
 WORKDIR /btre-web
 COPY . .
-RUN python3 -m venv .venv  && \
-    source .venv/bin/activate && \
+RUN psql -c "CREATE DATABASE btre;"
+RUN python3 -m venv .venv
+RUN source .venv/bin/activate && \
     pip install -r requirements.txt && \
     python manage.py collectstatic && \
     python manage.py migrate
