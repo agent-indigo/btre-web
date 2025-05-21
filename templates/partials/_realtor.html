@@ -4,28 +4,37 @@
     class="card-img-top"
   >
   <div class="card-body">
-    <h4>{{ realtor.first }} {{ realtor.last }}</h4>
+    <h4>
+      {{ realtor.first }} {{ realtor.last }}
+    </h4>
     {% if realtor.is_mvp %}
       <p class="text-success">
-        <i class="fas fa-award text-success mb-3"></i>
-        Seller of the Month
+        <i class="fas fa-award text-success mb-3"></i> Seller of the Month
       </p>
     {% else %}
-      <p><i class="fas fa-user mb-3"></i> Realtor</p>
+      <p>
+        <i class="fas fa-user mb-3"></i> Realtor
+      </p>
     {% endif %}
     <hr>
     <p>
-      <a class='text-secondary' href='tel:+1-{{ realtor.phone }}'>
-        <i class="fas fa-phone"></i>
-        {{ realtor.phone }}
+      <a
+        class='text-secondary'
+        href='tel:+1-{{ realtor.phone }}'
+      >
+        <i class="fas fa-phone"></i> {{ realtor.phone }}
       </a>
     </p>
     <p>
-      <a class='text-secondary' href='mailto:{{ realtor.email }}'>
-        <i class="fas fa-envelope open"></i>
-        {{ realtor.email }}
+      <a
+        class='text-secondary'
+        href='mailto:{{ realtor.email }}'
+      >
+        <i class="fas fa-envelope open"></i> {{ realtor.email }}
       </a>
     </p>
-    <p>{{ realtor.description }}</p>
+    <p>
+      {{ realtor.description }}
+    </p>
   </div>
 </div>

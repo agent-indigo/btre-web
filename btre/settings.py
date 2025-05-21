@@ -9,158 +9,183 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
 from pathlib import Path
 from dotenv import load_dotenv
 from django.contrib.messages import constants as messages
 import os
 import cloudinary
-
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
+# load environment variables from .env
 load_dotenv()
-
 # Cloudinary
 cloudinary.config(
-    cloud_name = os.getenv('STR_CLOUDINARY_CLOUD_NAME', ''),
-    api_key = os.getenv('STR_CLOUDINARY_API_KEY', ''),
-    api_secret = os.getenv('STR_CLOUDINARY_API_SECRET', '')
+  cloud_name = os.getenv(
+    'STR_CLOUDINARY_CLOUD_NAME',
+    ''
+  ),
+  api_key = os.getenv(
+    'STR_CLOUDINARY_API_KEY',
+    ''
+  ),
+  api_secret = os.getenv(
+    'STR_CLOUDINARY_API_SECRET',
+    ''
+  ),
 )
-
-CLOUDINARY_FOLDER = os.getenv('STR_CLOUDINARY_FOLDER_NAME', 'btre')
-
+CLOUDINARY_FOLDER = os.getenv(
+  'STR_CLOUDINARY_FOLDER_NAME',
+  'btre'
+)
 # Send email switch
-SEND_EMAILS = os.getenv('BOOL_SEND_EMAILS', 'False').title() == 'True'
-
+SEND_EMAILS = os.getenv(
+  'BOOL_SEND_EMAILS',
+  'False'
+).title() == 'True'
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('STR_SECRET_KEY', 'd3v3l0pm3nt53cr3tk3yn0t53cur3@t@11n3v3ru53!npr0duct!0n3v3r!!!')
-
+SECRET_KEY = os.getenv(
+  'STR_SECRET_KEY',
+  'd3v3l0pm3nt53cr3tk3yn0t53cur3@t@11n3v3ru53!npr0duct!0n3v3r!!!'
+)
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('BOOL_ENABLE_DEBUG', 'True').title() == 'True'
-
-ALLOWED_HOSTS = os.getenv('CSV_ALLOWED_HOSTS', '*').split(',')
-
+DEBUG = os.getenv(
+  'BOOL_ENABLE_DEBUG',
+  'True'
+).title() == 'True'
+ALLOWED_HOSTS = os.getenv(
+  'CSV_ALLOWED_HOSTS',
+  '*'
+).split(',')
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': f'django.db.backends.{os.getenv('ENUM_SQL_DB_DIALECT', 'postgresql')}',
-        'NAME': os.getenv('STR_SQL_DB_NAME', 'btre'),
-        'USER': os.getenv('STR_SQL_DB_USER', 'postgres'),
-        'PASSWORD': os.getenv('STR_SQL_DB_PW', ''),
-        'HOST': os.getenv('STR_SQL_DB_HOST', 'localhost'),
-        'PORT': os.getenv('INT_SQL_DB_PORT', 5432),
-        'OPTIONS': {
-            'sslmode': 'prefer'
-        }
+  'default': {
+    'ENGINE': f'django.db.backends.{os.getenv(
+      'ENUM_SQL_DB_DIALECT',
+      'postgresql'
+    )}',
+    'NAME': os.getenv(
+      'STR_SQL_DB_NAME',
+      'btre'
+    ),
+    'USER': os.getenv(
+      'STR_SQL_DB_USER',
+      'postgres'
+    ),
+    'PASSWORD': os.getenv(
+      'STR_SQL_DB_PW',
+      ''
+    ),
+    'HOST': os.getenv(
+      'STR_SQL_DB_HOST',
+      'localhost'
+    ),
+    'PORT': os.getenv(
+      'INT_SQL_DB_PORT',
+      5432
+    ),
+    'OPTIONS': {
+      'sslmode': 'prefer'
     }
+  }
 }
-
 # Email config
-EMAIL_HOST = os.getenv('STR_EMAIL_HOST', 'localhost')
-EMAIL_PORT = os.getenv('INT_EMAIL_PORT', 587)
-EMAIL_HOST_USER = os.getenv('STR_EMAIL_USER', '')
-EMAIL_HOST_PASSWORD = os.getenv('STR_EMAIL_PW', '')
-EMAIL_USE_TLS = os.getenv('BOOL_EMAIL_USE_TLS', 'True').title() == 'True'
-
-
+EMAIL_HOST = os.getenv(
+  'STR_EMAIL_HOST',
+  'localhost'
+)
+EMAIL_PORT = os.getenv(
+  'INT_EMAIL_PORT',
+  587
+)
+EMAIL_HOST_USER = os.getenv(
+  'STR_EMAIL_USER',
+  ''
+)
+EMAIL_HOST_PASSWORD = os.getenv(
+  'STR_EMAIL_PW',
+  ''
+)
+EMAIL_USE_TLS = os.getenv(
+  'BOOL_EMAIL_USE_TLS',
+  'True'
+).title() == 'True'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 # Application definition
-
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.humanize',
-    'accounts.apps.AccountsConfig',
-    'contacts.apps.ContactsConfig',
-    'listings.apps.ListingsConfig',
-    'pages.apps.PagesConfig',
-    'realtors.apps.RealtorsConfig'
+  'accounts.apps.AccountsConfig',
+  'contacts.apps.ContactsConfig',
+  'django.contrib.admin',
+  'django.contrib.auth',
+  'django.contrib.contenttypes',
+  'django.contrib.humanize',
+  'django.contrib.messages',
+  'django.contrib.sessions',
+  'django.contrib.staticfiles',
+  'listings.apps.ListingsConfig',
+  'pages.apps.PagesConfig',
+  'realtors.apps.RealtorsConfig'
 ]
-
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+  'django.contrib.sessions.middleware.SessionMiddleware',
+  'django.contrib.auth.middleware.AuthenticationMiddleware',
+  'django.contrib.messages.middleware.MessageMiddleware',
+  'django.middleware.common.CommonMiddleware',
+  'django.middleware.clickjacking.XFrameOptionsMiddleware',
+  'django.middleware.csrf.CsrfViewMiddleware',
+  'django.middleware.security.SecurityMiddleware'
 ]
-
 ROOT_URLCONF = 'btre.urls'
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
+TEMPLATES = [{
+  'BACKEND': 'django.template.backends.django.DjangoTemplates',
+  'DIRS': [
+    os.path.join(
+      BASE_DIR,
+      'templates'
+    )
+  ],
+  'APP_DIRS': True,
+  'OPTIONS': {
+    'context_processors': [
+      'django.contrib.auth.context_processors.auth',
+      'django.contrib.messages.context_processors.messages',
+      'django.template.context_processors.debug',
+      'django.template.context_processors.request'
+    ]
+  }
+}]
 WSGI_APPLICATION = 'btre.wsgi.application'
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
-
-
+AUTH_PASSWORD_VALIDATORS = [{
+  'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
+}, {
+   'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'
+}, {
+  'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'
+}, {
+  'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'
+}]
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 STATIC_ROOT = '/usr/share/nginx/html/static'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'btre/static')
+  os.path.join(
+    BASE_DIR,
+    'btre/static'
+  )
 ]
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 # Messages
 MESSAGE_TAGS = {
-    messages.ERROR: 'danger'
+  messages.ERROR: 'danger'
 }

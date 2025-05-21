@@ -1,5 +1,4 @@
-const logout = document.querySelector('a#logout')
-logout && logout.addEventListener(
+document.querySelector('a#logout')?.addEventListener(
   'click',
   () => document.querySelector('form#logout').submit()
 )

@@ -8,13 +8,23 @@
   {% include 'partials/_showcase-inner.html' with h1="About BT Real Estate" lead="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!" %}
   <!-- Breadcrumb -->
   {% include 'partials/_breadcrumb.html' %}
-  <section id="about" class="py-4">
+  <section
+    id="about"
+    class="py-4"
+  >
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2>We Search For The Perfect Home</h2>
-          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
-          <img src="{% static 'images/about.jpg' %}" alt="">
+          <h2>
+            We Search For The Perfect Home
+          </h2>
+          <p class="lead">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!
+          </p>
+          <img
+            src="{% static 'images/about.jpg' %}"
+            alt=""
+          >
           <p class="mt-4">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis esse officia repudiandae
             ad saepe ex, amet neque quod accusamus rem quia magnam magni dolorum facilis ullam minima
@@ -26,16 +36,33 @@
     </div>
   </section>
   <!-- Work -->
-  <section id="work" class="bg-dark text-white text-center">
-    <h2 class="display-4">We Work For You</h2>
-    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit aperiam, unde aliquid at similique!</h4>
+  <section
+    id="work"
+    class="bg-dark text-white text-center"
+  >
+    <h2 class="display-4">
+      We Work For You
+    </h2>
+    <h4>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit aperiam, unde aliquid at similique!
+    </h4>
     <hr>
-    <a href="{% url 'listings' %}" class="btn btn-secondary text-white btn-lg">View Our Featured Listings</a>
+    <a
+      href="{% url 'listings' %}"
+      class="btn btn-secondary text-white btn-lg"
+    >
+      View Our Featured Listings
+    </a>
   </section>
   <!-- Team -->
-  <section id="team" class="py-5">
+  <section
+    id="team"
+    class="py-5"
+  >
     <div class="container">
-      <h2 class="text-center">Our Team</h2>
+      <h2 class="text-center">
+        Our Team
+      </h2>
       <div class="row text-center">
         {% if realtors %}
           {% for realtor in realtors %}
@@ -45,7 +72,9 @@
           {% endfor %}
         {% else %}
           <div class="col-md-12">
-            <p>No realtors currently available.</p>
+            <p>
+              No realtors currently available.
+            </p>
           </div>
         {% endif %}
       </div>

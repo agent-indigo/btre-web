@@ -8,13 +8,12 @@
         {% if h1|default:'' == '' %}
           {% include 'partials/_search.html' %}
         {% else %}
-          <h1 class="display-4">{{ h1 }}</h1>
+          <h1 class="display-4">
+            {{ h1 }}
+          </h1>
           <p class="lead">
             {% if listing.title %}
-              <i class="fas fa-map-marker"></i>
-              {{ listing.city }}
-              {{ listing.state }},
-              {{ listing.zipcode }}
+              <i class="fas fa-map-marker"></i> {{ listing.city }} {{ listing.state }}, {{ listing.zipcode }}
             {% else %}
               {{ lead }}
             {% endif %}
