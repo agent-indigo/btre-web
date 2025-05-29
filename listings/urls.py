@@ -1,19 +1,19 @@
 from django.urls import path
-from . import views
+from .views import index, listing, search
 urlpatterns = [
   path(
     '',
-    views.index,
+    index,
     name = 'listings'
   ),
   path(
     '<int:listing_id>',
-    views.listing,
+    listing,
     name = 'listing'
   ),
   path(
     'search',
-    views.search,
+    search,
     name = 'search'
   )
 ]

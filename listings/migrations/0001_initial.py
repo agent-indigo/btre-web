@@ -2,8 +2,8 @@
 from datetime import datetime
 from django.db.models.deletion import DO_NOTHING
 from django.db import migrations, models
-from django.conf import settings
 from cloudinary.models import CloudinaryField
+from btre.settings import CLOUDINARY_FOLDER
 class Migration(migrations.Migration):
   initial = True
   dependencies = [(
@@ -12,8 +12,8 @@ class Migration(migrations.Migration):
   )]
   operations = [
     migrations.CreateModel(
-      name='Listing',
-      fields=[(
+      name = 'Listing',
+      fields = [(
         'id',
         models.BigAutoField(
           auto_created = True,
@@ -79,54 +79,54 @@ class Migration(migrations.Migration):
         'photo_main',
         CloudinaryField(
           'image',
-          folder = settings.CLOUDINARY_FOLDER
+          folder = CLOUDINARY_FOLDER
         )
       ), (
         'photo_1',
         CloudinaryField(
           'image',
-          folder = settings.CLOUDINARY_FOLDER,
+          folder = CLOUDINARY_FOLDER,
           blank = True
         )
       ), (
         'photo_2',
         CloudinaryField(
           'image',
-          folder = settings.CLOUDINARY_FOLDER,
+          folder = CLOUDINARY_FOLDER,
           blank = True
         )
       ), (
         'photo_3',
         CloudinaryField(
           'image',
-          folder = settings.CLOUDINARY_FOLDER,
+          folder = CLOUDINARY_FOLDER,
           blank = True
         )
       ), (
         'photo_4',
         CloudinaryField(
           'image',
-          folder = settings.CLOUDINARY_FOLDER,
+          folder = CLOUDINARY_FOLDER,
           blank = True
         )
       ), (
         'photo_5',
         CloudinaryField(
           'image',
-          folder = settings.CLOUDINARY_FOLDER,
+          folder = CLOUDINARY_FOLDER,
           blank = True
         )
       ), (
         'photo_6',
         CloudinaryField(
           'image',
-          folder = settings.CLOUDINARY_FOLDER,
+          folder = CLOUDINARY_FOLDER,
           blank = True
         )
       ), (
         'is_published',
         models.BooleanField(
-          default=True
+          default = True
         )
       ), (
         'list_date',

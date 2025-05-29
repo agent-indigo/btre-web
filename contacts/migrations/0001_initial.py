@@ -6,8 +6,8 @@ class Migration(migrations.Migration):
   dependencies = []
   operations = [
     migrations.CreateModel(
-      name='Contact',
-      fields=[(
+      name = 'Contact',
+      fields = [(
         'id',
         models.BigAutoField(
           auto_created = True,

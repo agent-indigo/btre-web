@@ -1,10 +1,12 @@
+from urllib.request import Request
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.urls import reverse
 from contacts.models import Contact
 # Create your views here.
-def dashboard(request):
+def dashboard(request: Request) -> HttpResponse:
   return render(
     request,
     'accounts/dashboard.html', {
@@ -12,21 +14,23 @@ def dashboard(request):
         'label': 'Dashboard',
         'url': None
       }],
-      'contacts': Contact.objects.order_by('-contact_date').filter(user_id = request.user.id)
+      'contacts': Contact.objects.order_by('-contact_date').filter(
+        user_id = request.user.id
+      )
     }
   )
-def login(request):
+def login(request: Request) -> HttpResponse:
   if request.method == 'POST':
-    user = auth.authenticate(
+    USER = auth.authenticate(
       username = request.POST['username'],
       password = request.POST['password']
     )
-    if user is not None:
+    if USER is not None:
       auth.login(
         request,
-        user
+        USER
       )
-      if user.is_staff:
+      if USER.is_staff:
         return redirect(reverse('admin:index'))
       else:
         messages.success(
@@ -45,7 +49,7 @@ def login(request):
       request,
       'accounts/login.html'
     )
-def logout(request):
+def logout(request: Request) -> HttpResponse:
   if request.method == 'POST':
     auth.logout(request)
     messages.success(
@@ -53,17 +57,16 @@ def logout(request):
       'You are now logged out.'
     )
     return redirect('index')
-def register(request):
+def register(request: Request) -> HttpResponse:
   if request.method == 'POST':
     # get form values
-    username = request.POST['username']
-    email = request.POST['email']
-    password = request.POST['password']
-    password2 = request.POST['password2']
+    USERNAME = request.POST['username']
+    PASSWORD = request.POST['password']
+    CONFIRM_PASSWORD = request.POST['password2']
     # check if passwords match
-    if password == password2:
+    if PASSWORD == CONFIRM_PASSWORD:
       # check username
-      if User.objects.filter(username = username).exists():
+      if User.objects.filter(username = USERNAME).exists():
         messages.error(
           request,
           'That username is taken.'
@@ -71,7 +74,8 @@ def register(request):
         return redirect('register')
       else:
         # check email
-        if User.objects.filter(email = email).exists():
+        EMAIL = request.POST['email']
+        if User.objects.filter(email = EMAIL).exists():
           messages.error(
             request,
             'An account with that email address already exists.'
@@ -82,9 +86,9 @@ def register(request):
           auth.login(
             request,
             User.objects.create_user(
-              username = username,
-              password = password,
-              email = email,
+              username = USERNAME,
+              password = PASSWORD,
+              email = EMAIL,
               first_name = request.POST['first_name'],
               last_name = request.POST['last_name']
             )

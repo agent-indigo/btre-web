@@ -1,10 +1,12 @@
+from urllib.request import Request
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import Paginator
 from django.urls import reverse
-from .options import beds, prices, states
+from .options import BEDS, PRICES, STATES
 from .models import Listing
 # Create your views here.
-def index(request):
+def index(request: Request) -> HttpResponse:
   return render(
     request,
     'listings/listings.html', {
@@ -21,10 +23,10 @@ def index(request):
     }
   )
 def listing(
-  request,
-  listing_id
-):
-  listing = get_object_or_404(
+  request: Request,
+  listing_id: int
+) -> HttpResponse:
+  LISTING = get_object_or_404(
     Listing,
     pk = listing_id
   )
@@ -35,48 +37,48 @@ def listing(
         'label': 'Listings',
         'url': reverse('listings')
       }, {
-        'label': listing.title,
+        'label': LISTING.title,
         'url': None
       }],
-      'listing': listing
+      'listing': LISTING
     }
   )
-def search(request):
-  queryset_list = Listing.objects.order_by('-list_date')
+def search(request: Request) -> HttpResponse:
+  listings = Listing.objects.order_by('-list_date')
   # keywords
   if 'keywords' in request.GET:
-    keywords = request.GET['keywords']
-    if keywords:
-      queryset_list = queryset_list.filter(
-        description__icontains = keywords
+    KEYWORDS = request.GET['keywords']
+    if KEYWORDS:
+      listings = listings.filter(
+        description__icontains = KEYWORDS
       )
   # city
   if 'city' in request.GET:
-    city = request.GET['city']
-    if city:
-      queryset_list = queryset_list.filter(
-        city__iexact = city
+    CITY = request.GET['city']
+    if CITY:
+      listings = listings.filter(
+        city__iexact = CITY
       )
   # state
   if 'state' in request.GET:
-    state = request.GET['state']
-    if state:
-      queryset_list = queryset_list.filter(
-        state__iexact = state
+    STATE = request.GET['state']
+    if STATE:
+      listings = listings.filter(
+        state__iexact = STATE
       )
   # bedrooms
   if 'bedrooms' in request.GET:
-    bedrooms = request.GET['bedrooms']
-    if bedrooms:
-      queryset_list = queryset_list.filter(
-        bedrooms__iexact = bedrooms
+    BEDROOMS = request.GET['bedrooms']
+    if BEDROOMS:
+      listings = listings.filter(
+        bedrooms__iexact = BEDROOMS
       )
   # price
   if 'price' in request.GET:
-    price = request.GET['price']
-    if price:
-      queryset_list = queryset_list.filter(
-        price__lte = price
+    PRICE = request.GET['price']
+    if PRICE:
+      listings = listings.filter(
+        price__lte = PRICE
       )
   return render(
     request,
@@ -88,10 +90,10 @@ def search(request):
         'label': 'Search',
         'url': None
       }],
-      'beds': beds,
-      'listings': queryset_list,
-      'prices': prices,
-      'states': states,
+      'beds': BEDS,
+      'listings': listings,
+      'prices': PRICES,
+      'states': STATES,
       'values': request.GET
     }
   )

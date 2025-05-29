@@ -1,21 +1,23 @@
+from urllib.request import Request
+from django.http import HttpResponse
 from django.shortcuts import render
-from listings.options import beds, prices, states
+from listings.options import BEDS, PRICES, STATES
 from listings.models import Listing
 from realtors.models import Realtor
 # Create your views here.
-def index(request):
+def index(request: Request) -> HttpResponse:
   return render(
     request,
     'pages/index.html', {
-      'beds': beds,
+      'beds': BEDS,
       'listings': Listing.objects.order_by('-list_date').filter(
         is_published = True
       )[:3],
-      'prices': prices,
-      'states': states
+      'prices': PRICES,
+      'states': STATES
     }
   )
-def about(request):
+def about(request: Request) -> HttpResponse:
   return render(
     request,
     'pages/about.html', {
