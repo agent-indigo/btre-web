@@ -22,5 +22,5 @@ class Realtor(models.Model):
     default = datetime.now,
     blank = True
   )
-  def __str__(self):
+  def __str__(self: object) -> str:
     return f'{self.first} {self.last}'

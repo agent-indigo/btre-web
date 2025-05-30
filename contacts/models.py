@@ -18,5 +18,5 @@ class Contact(models.Model):
   user_id = models.IntegerField(
     blank = True
   )
-  def __str__(self):
+  def __str__(self: object) -> str:
     return f'{self.first} {self.last}'

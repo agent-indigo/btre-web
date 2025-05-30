@@ -6,12 +6,20 @@ primary keys
 """
 from django.db.models import AutoField
 from uuid import uuid4
+from django.db.backends.base.base import BaseDatabaseWrapper
+from django.db.models import Model
 class UUIDAutoField(AutoField):
   def __init__(
-    self,
-    *args,
-    **kwargs
-  ):
+    self: object,
+    *args: tuple[
+      str,
+      ...
+    ],
+    **kwargs: dict[
+      str,
+      str
+    ]
+  ) -> None:
     kwargs['default'] = uuid4
     kwargs['editable'] = False
     super().__init__(
@@ -19,15 +27,15 @@ class UUIDAutoField(AutoField):
       **kwargs
     )
   def db_type(
-    self,
-    connection
-  ):
+    self: object,
+    connection: BaseDatabaseWrapper
+  ) -> str:
     return 'uuid'
   def pre_save(
-    self,
-    model_instance,
-    add
-  ):
+    self: object,
+    model_instance: Model,
+    add: bool
+  ) -> str:
     value = getattr(
       model_instance,
       self.attname
