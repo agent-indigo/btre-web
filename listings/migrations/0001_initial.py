@@ -134,20 +134,20 @@ class Migration(migrations.Migration):
           default = True
         )
       ), (
-        'realtor',
+        'realtor_id',
         models.ForeignKey(
           on_delete = DO_NOTHING,
           to = 'realtors.realtor'
         )
       ), (
-        'user_id',
-        models.IntegerField(
-          blank = True
-        )
-      ), (
         'created_at',
         models.DateTimeField(
           auto_now_add = True
+        )
+      ), (
+        'updated_at',
+        models.DateTimeField(
+          auto_now = True
         )
       )]
     )

@@ -7,15 +7,16 @@ class ListingAdmin(admin.ModelAdmin):
     'title',
     'is_published',
     'price',
-    'list_date',
-    'realtor'
+    'realtor_id',
+    'created_at',
+    'updated_at'
   )
   list_display_links = (
     'id',
     'title'
   )
   list_filter = (
-    'realtor',
+    'realtor_id',
   )
   list_editable = (
     'is_published',

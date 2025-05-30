@@ -51,14 +51,14 @@ class Migration(migrations.Migration):
           default = False
         )
       ), (
-        'user_id',
-        models.IntegerField(
-          blank = True
-        )
-      ), (
         'created_at',
         models.DateTimeField(
           auto_now_add = True
+        )
+      ), (
+        'updated_at',
+        models.DateTimeField(
+          auto_now = True
         )
       )]
     )

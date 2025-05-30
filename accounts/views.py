@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.urls import reverse
-from inquiries.models import Contact
+from inquiries.models import Inquiry
 # Create your views here.
 def dashboard(request: Request) -> HttpResponse:
   return render(
@@ -14,7 +14,7 @@ def dashboard(request: Request) -> HttpResponse:
         'label': 'Dashboard',
         'url': None
       }],
-      'contacts': Contact.objects.order_by('-contact_date').filter(
+      'contacts': Inquiry.objects.order_by('-created_at').filter(
         user_id = request.user.id
       )
     }

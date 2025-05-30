@@ -6,7 +6,7 @@ from django.core.mail import send_mail
 from btre.settings import SEND_EMAILS
 from .models import Inquiry
 # Create your views here.
-def contact(request: Request) -> HttpResponse:
+def inquire(request: Request) -> HttpResponse:
   if request.method == 'POST':
     # check for existing inquiry
     if request.user.is_authenticated:

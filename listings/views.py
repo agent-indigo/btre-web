@@ -15,7 +15,7 @@ def index(request: Request) -> HttpResponse:
         'url': None
       }],
       'listings': Paginator(
-        Listing.objects.order_by('-list_date').filter(
+        Listing.objects.order_by('-created_at').filter(
           is_published = True
         ),
         6
@@ -44,7 +44,7 @@ def listing(
     }
   )
 def search(request: Request) -> HttpResponse:
-  listings = Listing.objects.order_by('-list_date')
+  listings = Listing.objects.order_by('-created_at')
   # keywords
   if 'keywords' in request.GET:
     KEYWORDS = request.GET['keywords']

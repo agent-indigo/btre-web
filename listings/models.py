@@ -8,10 +8,6 @@ class Listing(models.Model):
     verbose_name = 'Listing'
     verbose_name_plural = f'{verbose_name}s'
     db_table = f'{verbose_name.lower()}s'
-  realtor = models.ForeignKey(
-    Realtor,
-    on_delete = models.DO_NOTHING
-  )
   title = models.CharField()
   address = models.CharField()
   city = models.CharField()
@@ -78,6 +74,10 @@ class Listing(models.Model):
   )
   is_published = models.BooleanField(
     default = True
+  )
+  realtor_id = models.ForeignKey(
+    Realtor,
+    on_delete = models.DO_NOTHING
   )
   created_at = models.DateTimeField(
     auto_now_add = True

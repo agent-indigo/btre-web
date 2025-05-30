@@ -8,7 +8,7 @@ class InquiryAdmin(admin.ModelAdmin):
     'last',
     'listing',
     'email',
-    'contact_date'
+    'created_at'
   )
   list_display_links = (
     'id',
