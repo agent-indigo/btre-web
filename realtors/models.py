@@ -1,9 +1,12 @@
 from django.db import models
-from datetime import datetime
 from cloudinary.models import CloudinaryField
 from btre.settings import CLOUDINARY_FOLDER
 # Create your models here.
 class Realtor(models.Model):
+  class Meta:
+    verbose_name = 'Realtor'
+    verbose_name_plural = f'{verbose_name}s'
+    db_table = f'{verbose_name.lower()}s'
   first = models.CharField()
   last = models.CharField()
   photo = CloudinaryField(
@@ -18,9 +21,11 @@ class Realtor(models.Model):
   is_mvp = models.BooleanField(
     default = False
   )
-  hire_date = models.DateTimeField(
-    default = datetime.now,
-    blank = True
+  created_at = models.DateTimeField(
+    auto_now_add = True
+  )
+  updated_at = models.DateTimeField(
+    auto_now = True
   )
   def __str__(self: object) -> str:
     return f'{self.first} {self.last}'

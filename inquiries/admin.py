@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Contact
+from .models import Inquiry
 # Register your models here.
-class ContactAdmin(admin.ModelAdmin):
+class InquiryAdmin(admin.ModelAdmin):
   list_display = (
     'id',
     'first',
@@ -23,6 +23,6 @@ class ContactAdmin(admin.ModelAdmin):
   )
   list_per_page = 25
 admin.site.register(
-  Contact,
-  ContactAdmin
+  Inquiry,
+  InquiryAdmin
 )

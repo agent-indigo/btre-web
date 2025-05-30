@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.urls import reverse
-from contacts.models import Contact
+from inquiries.models import Contact
 # Create your views here.
 def dashboard(request: Request) -> HttpResponse:
   return render(

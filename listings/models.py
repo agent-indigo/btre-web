@@ -1,10 +1,13 @@
 from django.db import models
-from datetime import datetime
 from cloudinary.models import CloudinaryField
 from btre.settings import CLOUDINARY_FOLDER
 from realtors.models import Realtor
 # Create your models here.
 class Listing(models.Model):
+  class Meta:
+    verbose_name = 'Listing'
+    verbose_name_plural = f'{verbose_name}s'
+    db_table = f'{verbose_name.lower()}s'
   realtor = models.ForeignKey(
     Realtor,
     on_delete = models.DO_NOTHING
@@ -76,9 +79,11 @@ class Listing(models.Model):
   is_published = models.BooleanField(
     default = True
   )
-  list_date = models.DateTimeField(
-    default = datetime.now,
-    blank = True
+  created_at = models.DateTimeField(
+    auto_now_add = True
+  )
+  updated_at = models.DateTimeField(
+    auto_now = True
   )
   def __str__(self: object) -> str:
     return self.title

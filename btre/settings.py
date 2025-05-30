@@ -114,7 +114,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Application definition
 INSTALLED_APPS = [
   'accounts.apps.AccountsConfig',
-  'contacts.apps.ContactsConfig',
   'django.contrib.admin',
   'django.contrib.auth',
   'django.contrib.contenttypes',
@@ -122,6 +121,7 @@ INSTALLED_APPS = [
   'django.contrib.messages',
   'django.contrib.sessions',
   'django.contrib.staticfiles',
+  'inquiries.apps.InquiriesConfig',
   'listings.apps.ListingsConfig',
   'pages.apps.PagesConfig',
   'realtors.apps.RealtorsConfig'
@@ -184,7 +184,7 @@ STATICFILES_DIRS = [
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'btre.UUIDAutoField'
 # Messages
 MESSAGE_TAGS = {
   messages.ERROR: 'danger'

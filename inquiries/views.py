@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.core.mail import send_mail
 from btre.settings import SEND_EMAILS
-from .models import Contact
+from .models import Inquiry
 # Create your views here.
 def contact(request: Request) -> HttpResponse:
   if request.method == 'POST':
@@ -12,7 +12,7 @@ def contact(request: Request) -> HttpResponse:
     if request.user.is_authenticated:
       LISTING_ID = request.POST['listing_id']
       USER_ID = request.user_id
-      has_contacted = Contact.objects.all().filter(
+      has_contacted = Inquiry.objects.all().filter(
         listing_id = LISTING_ID,
         user_id = USER_ID
       )
@@ -24,7 +24,7 @@ def contact(request: Request) -> HttpResponse:
         return redirect('/listings/'+LISTING_ID)
       else:
         LISTING = request.POST['listing']
-        Contact(
+        Inquiry(
           listing = LISTING,
           listing_id = LISTING_ID,
           first = request.POST['first'],

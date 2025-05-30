@@ -1,7 +1,10 @@
 from django.db import models
-from datetime import datetime
 # Create your models here.
-class Contact(models.Model):
+class Inquiry(models.Model):
+  class Meta:
+    verbose_name = 'Inquiry'
+    verbose_name_plural = 'Inquiries'
+    db_table = 'inquiries'
   listing = models.CharField()
   listing_id = models.IntegerField()
   first = models.CharField()
@@ -11,12 +14,14 @@ class Contact(models.Model):
   message = models.TextField(
     blank = True
   )
-  contact_date = models.DateTimeField(
-    default = datetime.now,
-    blank = True
-  )
   user_id = models.IntegerField(
     blank = True
+  )
+  created_at = models.DateTimeField(
+    auto_now_add = True
+  )
+  updated_at = models.DateTimeField(
+    auto_now = True
   )
   def __str__(self: object) -> str:
     return f'{self.first} {self.last}'
