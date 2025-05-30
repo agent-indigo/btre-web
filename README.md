@@ -44,6 +44,8 @@ I made the following modifications:
 
 - Added Docker files
 
+- Replaced integer primary keys with UUIDs
+
 - Bug fixes
 
 - Other minor modifications
