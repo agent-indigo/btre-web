@@ -32,8 +32,8 @@ urlpatterns = [
     admin.site.urls
   ),
   path(
-    'contacts/',
-    include('contacts.urls')
+    'inquiries/',
+    include('inquiries.urls')
   ),
   path(
     'listings/',
