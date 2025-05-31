@@ -5,7 +5,7 @@ in settings.py to use v4 UUIDs as
 primary keys
 """
 from django.db.models import AutoField
-from uuid import uuid4
+from uuid import UUID, uuid4
 from django.db.backends.base.base import BaseDatabaseWrapper
 from django.db.models import Model
 class UUIDAutoField(AutoField):
@@ -35,7 +35,7 @@ class UUIDAutoField(AutoField):
     self: object,
     model_instance: Model,
     add: bool
-  ) -> str:
+  ) -> UUID:
     value = getattr(
       model_instance,
       self.attname

@@ -14,7 +14,7 @@ def dashboard(request: Request) -> HttpResponse:
         'label': 'Dashboard',
         'url': None
       }],
-      'contacts': Inquiry.objects.order_by('-created_at').filter(
+      'inquiries': Inquiry.objects.order_by('-created_at').filter(
         user_id = request.user.id
       )
     }
@@ -62,11 +62,13 @@ def register(request: Request) -> HttpResponse:
     # get form values
     USERNAME = request.POST['username']
     PASSWORD = request.POST['password']
-    CONFIRM_PASSWORD = request.POST['password2']
+    CONFIRM_PASSWORD = request.POST['confirm_password']
     # check if passwords match
     if PASSWORD == CONFIRM_PASSWORD:
       # check username
-      if User.objects.filter(username = USERNAME).exists():
+      if User.objects.filter(
+        username = USERNAME
+      ).exists():
         messages.error(
           request,
           'That username is taken.'
@@ -75,7 +77,9 @@ def register(request: Request) -> HttpResponse:
       else:
         # check email
         EMAIL = request.POST['email']
-        if User.objects.filter(email = EMAIL).exists():
+        if User.objects.filter(
+          email = EMAIL
+        ).exists():
           messages.error(
             request,
             'An account with that email address already exists.'

@@ -3,23 +3,24 @@ from .models import Inquiry
 # Register your models here.
 class InquiryAdmin(admin.ModelAdmin):
   list_display = (
-    'id',
     'first',
     'last',
-    'listing',
     'email',
+    'listing',
     'created_at'
   )
   list_display_links = (
-    'id',
     'first',
-    'last'
+    'last',
+    'email',
+    'listing'
   )
   search_fields = (
     'first',
     'last',
     'email',
-    'listing'
+    'listing',
+    'created_at'
   )
   list_per_page = 25
 admin.site.register(

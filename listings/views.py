@@ -1,4 +1,5 @@
 from urllib.request import Request
+from uuid import UUID
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import Paginator
@@ -24,7 +25,7 @@ def index(request: Request) -> HttpResponse:
   )
 def listing(
   request: Request,
-  listing_id: int
+  listing_id: UUID
 ) -> HttpResponse:
   LISTING = get_object_or_404(
     Listing,

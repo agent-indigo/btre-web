@@ -3,16 +3,14 @@ from .models import Listing
 # Register your models here.
 class ListingAdmin(admin.ModelAdmin):
   list_display = (
-    'id',
     'title',
-    'is_published',
     'price',
+    'is_published',
     'realtor_id',
     'created_at',
     'updated_at'
   )
   list_display_links = (
-    'id',
     'title'
   )
   list_filter = (
@@ -28,7 +26,9 @@ class ListingAdmin(admin.ModelAdmin):
     'city',
     'state',
     'zipcode',
-    'price'
+    'price',
+    'created_at',
+    'updated_at'
   )
   list_per_page = 25
 admin.site.register(
