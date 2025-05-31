@@ -44,37 +44,33 @@ class Listing(models.Model):
     max_digits = 5,
     decimal_places = 1
   )
-  photo_main = CloudinaryField(
-    'image',
+  exterior = CloudinaryField(
+    'Exterior',
     folder = CLOUDINARY_FOLDER
   )
-  photo_1 = CloudinaryField(
-    'image',
+  interior_1 = CloudinaryField(
+    'Interior 1',
+    folder = CLOUDINARY_FOLDER,
+  )
+  interior_2 = CloudinaryField(
+    'Interior 2',
+    folder = CLOUDINARY_FOLDER,
+  )
+  interior_3 = CloudinaryField(
+    'Interior 3',
+    folder = CLOUDINARY_FOLDER,
+  )
+  interior_4 = CloudinaryField(
+    'Interior 4',
+    folder = CLOUDINARY_FOLDER,
+  )
+  interior_5 = CloudinaryField(
+    'Interior 5',
     folder = CLOUDINARY_FOLDER,
     blank = True
   )
-  photo_2 = CloudinaryField(
-    'image',
-    folder = CLOUDINARY_FOLDER,
-    blank = True
-  )
-  photo_3 = CloudinaryField(
-    'image',
-    folder = CLOUDINARY_FOLDER,
-    blank = True
-  )
-  photo_4 = CloudinaryField(
-    'image',
-    folder = CLOUDINARY_FOLDER,
-    blank = True
-  )
-  photo_5 = CloudinaryField(
-    'image',
-    folder = CLOUDINARY_FOLDER,
-    blank = True
-  )
-  photo_6 = CloudinaryField(
-    'image',
+  interior_6 = CloudinaryField(
+    'Interior 6',
     folder = CLOUDINARY_FOLDER,
     blank = True
   )

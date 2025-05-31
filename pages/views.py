@@ -10,7 +10,7 @@ def index(request: Request) -> HttpResponse:
     request,
     'pages/index.html', {
       'beds': BEDS,
-      'listings': Listing.objects.order_by('-list_date').filter(
+      'listings': Listing.objects.order_by('-created_at').filter(
         is_published = True
       )[:3],
       'prices': PRICES,
@@ -28,6 +28,6 @@ def about(request: Request) -> HttpResponse:
       'mvps': Realtor.objects.all().filter(
         is_mvp = True
       ),
-      'realtors': Realtor.objects.order_by('-hire_date')
+      'realtors': Realtor.objects.order_by('-created_at')
     }
   )
