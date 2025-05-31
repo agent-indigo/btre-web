@@ -1,3 +1,4 @@
+from uuid import uuid4
 from django.db import models
 from cloudinary.models import CloudinaryField
 from btre.settings import CLOUDINARY_FOLDER
@@ -7,6 +8,11 @@ class Realtor(models.Model):
     verbose_name = 'Realtor'
     verbose_name_plural = f'{verbose_name}s'
     db_table = f'{verbose_name.lower()}s'
+  id = models.UUIDField(
+    primary_key = True,
+    default = uuid4,
+    editable = False
+  )
   first = models.CharField()
   last = models.CharField()
   photo = CloudinaryField(

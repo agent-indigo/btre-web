@@ -1,3 +1,4 @@
+from uuid import uuid4
 from django.db import models
 # Create your models here.
 class Inquiry(models.Model):
@@ -5,6 +6,11 @@ class Inquiry(models.Model):
     verbose_name = 'Inquiry'
     verbose_name_plural = 'Inquiries'
     db_table = 'inquiries'
+  id = models.UUIDField(
+    primary_key = True,
+    default = uuid4,
+    editable = False
+  )
   listing = models.CharField()
   listing_id = models.IntegerField()
   first = models.CharField()

@@ -44,7 +44,19 @@ I made the following modifications:
 
 - Added Docker files
 
-- Replaced integer primary keys with UUIDs
+- Custom table primary keys are UUIDs instead of integers
+
+- Added custom table timestamps and `Meta` `class`es
+
+- Annotated functions
+
+- Renamed several constants to UPPERCASE
+
+- Improved admin area display and search
+
+- Renamed `contacts` app to `inquiries`
+
+- Renamed `password2` to `confirm_password`
 
 - Bug fixes
 
