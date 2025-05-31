@@ -11,7 +11,7 @@ class ListingAdmin(admin.ModelAdmin):
     'updated_at'
   )
   list_display_links = (
-    'title'
+    'title',
   )
   list_filter = (
     'realtor_id',
