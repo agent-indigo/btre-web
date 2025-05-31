@@ -13,17 +13,17 @@ class Realtor(models.Model):
     default = uuid4,
     editable = False
   )
-  first = models.CharField()
-  last = models.CharField()
+  first_name = models.CharField()
+  last_name = models.CharField()
   photo = CloudinaryField(
-    'image',
+    'Photo',
     folder = CLOUDINARY_FOLDER
   )
   description = models.TextField(
     blank = True
   )
-  phone = models.CharField()
-  email = models.CharField()
+  email_address = models.CharField()
+  phone_number = models.CharField()
   is_mvp = models.BooleanField(
     default = False
   )

@@ -1,5 +1,6 @@
 from uuid import uuid4
 from django.db import models
+from django.contrib.auth.models import User
 # Create your models here.
 class Inquiry(models.Model):
   class Meta:
@@ -11,16 +12,18 @@ class Inquiry(models.Model):
     default = uuid4,
     editable = False
   )
-  listing = models.CharField()
+  listing_title = models.CharField()
   listing_id = models.IntegerField()
-  first = models.CharField()
-  last = models.CharField()
-  email = models.CharField()
-  phone = models.CharField()
+  first_name = models.CharField()
+  last_name = models.CharField()
+  email_address = models.CharField()
+  phone_number = models.CharField()
   message = models.TextField(
     blank = True
   )
-  user_id = models.IntegerField(
+  user_id = models.ForeignKey(
+    User,
+    on_delete = models.DO_NOTHING,
     blank = True
   )
   created_at = models.DateTimeField(

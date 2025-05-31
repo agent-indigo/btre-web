@@ -19,7 +19,7 @@
           <h2>
             Welcome {{ user.first_name }}
           </h2>
-          {% if contacts %}
+          {% if inquiries %}
             <p>
               Here are the property listings that you have inquired about
             </p>
@@ -38,15 +38,12 @@
                 {% for inquiry in inquiries %}
                   <tr>
                     <td>
-                      {{ contact.id }}
-                    </td>
-                    <td>
-                      {{ contact.listing }}
+                      {{ inquiry.listing_title }}
                     </td>
                     <td>
                       <a
                         class="btn btn-light"
-                        href="{% url 'listing' contact.listing_id %}"
+                        href="{% url 'listing' inquiry.listing_id %}"
                       >
                         View Listing
                       </a>

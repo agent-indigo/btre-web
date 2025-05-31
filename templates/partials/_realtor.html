@@ -5,7 +5,7 @@
   >
   <div class="card-body">
     <h4>
-      {{ realtor.first }} {{ realtor.last }}
+      {{ realtor.first_name }} {{ realtor.last_name }}
     </h4>
     {% if realtor.is_mvp %}
       <p class="text-success">
@@ -22,15 +22,15 @@
         class='text-secondary'
         href='tel:+1-{{ realtor.phone }}'
       >
-        <i class="fas fa-phone"></i> {{ realtor.phone }}
+        <i class="fas fa-phone"></i> {{ realtor.phone_number }}
       </a>
     </p>
     <p>
       <a
         class='text-secondary'
-        href='mailto:{{ realtor.email }}'
+        href='mailto:{{ realtor.email_address }}'
       >
-        <i class="fas fa-envelope open"></i> {{ realtor.email }}
+        <i class="fas fa-envelope open"></i> {{ realtor.email_address }}
       </a>
     </p>
     <p>

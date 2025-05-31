@@ -86,8 +86,8 @@ def search(request: Request) -> HttpResponse:
     'listings/search.html', {
       'breadcrumb': [{
         'label': 'Listings',
-        'url': reverse('listings'
-      )}, {
+        'url': reverse('listings')
+      }, {
         'label': 'Search',
         'url': None
       }],

@@ -23,14 +23,14 @@ def inquire(request: Request) -> HttpResponse:
         )
         return redirect('/listings/'+LISTING_ID)
       else:
-        LISTING = request.POST['listing']
+        LISTING_TITLE = request.POST['listing_title']
         Inquiry(
-          listing = LISTING,
+          listing_title = LISTING_TITLE,
           listing_id = LISTING_ID,
-          first = request.POST['first'],
-          last = request.POST['last'],
-          email = request.POST['email'],
-          phone = request.POST['phone'],
+          first_name = request.POST['first_name'],
+          last_name = request.POST['last_name'],
+          email_address = request.POST['email_address'],
+          phone_number = request.POST['phone_number'],
           message = request.POST['message'],
           user_id = USER_ID
         ).save()
@@ -38,7 +38,7 @@ def inquire(request: Request) -> HttpResponse:
         if SEND_EMAILS:
           send_mail(
             'Property Listing Inquiry',
-            f'There has been an inquiry regarding {LISTING}.',
+            f'There has been an inquiry regarding {LISTING_TITLE}.',
             '', [
               request.POST['realtor_email']
             ],

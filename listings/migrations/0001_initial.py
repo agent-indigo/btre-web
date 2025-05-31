@@ -80,46 +80,50 @@ class Migration(migrations.Migration):
           max_digits = 5
         )
       ), (
-        'exterior',
+        'exterior_photo',
         CloudinaryField(
-          'Exterior',
+          'Exterior Photo',
           folder = CLOUDINARY_FOLDER
         )
       ), (
-        'interior_1',
+        'interior_photo_1',
         CloudinaryField(
-          'Interior 1',
-          folder = CLOUDINARY_FOLDER,
-        )
-      ), (
-        'interior_2',
-        CloudinaryField(
-          'Interior 2',
-          folder = CLOUDINARY_FOLDER,
-        )
-      ), (
-        'interior_3',
-        CloudinaryField(
-          'Interior 3',
-          folder = CLOUDINARY_FOLDER,
-        )
-      ), (
-        'interior_4',
-        CloudinaryField(
-          'Interior 4',
-          folder = CLOUDINARY_FOLDER,
-        )
-      ), (
-        'interior_5',
-        CloudinaryField(
-          'Interior 5',
+          'Interior Photo 1',
           folder = CLOUDINARY_FOLDER,
           blank = True
         )
       ), (
-        'interior_6',
+        'interior_photo_2',
         CloudinaryField(
-          'Interior 6',
+          'Interior Photo 2',
+          folder = CLOUDINARY_FOLDER,
+          blank = True
+        )
+      ), (
+        'interior_photo_3',
+        CloudinaryField(
+          'Interior Photo 3',
+          folder = CLOUDINARY_FOLDER,
+          blank = True
+        )
+      ), (
+        'interior_photo_4',
+        CloudinaryField(
+          'Interior Photo 4',
+          folder = CLOUDINARY_FOLDER,
+          blank = True
+        )
+      ), (
+        'interior_photo_5',
+        CloudinaryField(
+          'Interior Photo 5',
+          folder = CLOUDINARY_FOLDER,
+          blank = True
+        )
+      ), (
+        'interior_photo_6',
+        CloudinaryField(
+          'Interior Photo 6',
           folder = CLOUDINARY_FOLDER,
           blank = True
         )

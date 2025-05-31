@@ -20,22 +20,22 @@ class Migration(migrations.Migration):
           editable = False
         )
       ), (
-        'listing',
+        'listing_title',
         models.CharField()
       ), (
         'listing_id',
         models.IntegerField()
       ), (
-        'first',
+        'first_name',
         models.CharField()
       ), (
-        'last',
+        'last_name',
         models.CharField()
       ),  (
-        'email',
+        'email_address',
         models.CharField()
       ), (
-        'phone',
+        'phone_number',
         models.CharField()
       ), (
         'message',
@@ -44,7 +44,9 @@ class Migration(migrations.Migration):
         )
       ), (
         'user_id',
-        models.IntegerField(
+        models.ForeignKey(
+          on_delete = models.DO_NOTHING,
+          to = 'auth.User',
           blank = True
         )
       ), (

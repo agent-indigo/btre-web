@@ -44,33 +44,37 @@ class Listing(models.Model):
     max_digits = 5,
     decimal_places = 1
   )
-  exterior = CloudinaryField(
+  exterior_photo = CloudinaryField(
     'Exterior',
     folder = CLOUDINARY_FOLDER
   )
-  interior_1 = CloudinaryField(
-    'Interior 1',
-    folder = CLOUDINARY_FOLDER,
-  )
-  interior_2 = CloudinaryField(
-    'Interior 2',
-    folder = CLOUDINARY_FOLDER,
-  )
-  interior_3 = CloudinaryField(
-    'Interior 3',
-    folder = CLOUDINARY_FOLDER,
-  )
-  interior_4 = CloudinaryField(
-    'Interior 4',
-    folder = CLOUDINARY_FOLDER,
-  )
-  interior_5 = CloudinaryField(
-    'Interior 5',
+  interior_photo_1 = CloudinaryField(
+    'Interior Photo 1',
     folder = CLOUDINARY_FOLDER,
     blank = True
   )
-  interior_6 = CloudinaryField(
-    'Interior 6',
+  interior_photo_2 = CloudinaryField(
+    'Interior Photo 2',
+    folder = CLOUDINARY_FOLDER,
+    blank = True
+  )
+  interior_photo_3 = CloudinaryField(
+    'Interior Photo 3',
+    folder = CLOUDINARY_FOLDER,
+    blank = True
+  )
+  interior_photo_4 = CloudinaryField(
+    'Interior Photo 4',
+    folder = CLOUDINARY_FOLDER,
+    blank = True
+  )
+  interior_photo_5 = CloudinaryField(
+    'Interior Photo 5',
+    folder = CLOUDINARY_FOLDER,
+    blank = True
+  )
+  interior_photo_6 = CloudinaryField(
+    'Interior Photo 6',
     folder = CLOUDINARY_FOLDER,
     blank = True
   )

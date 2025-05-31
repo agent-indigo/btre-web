@@ -22,15 +22,15 @@ class Migration(migrations.Migration):
           editable = False
         )
       ), (
-        'first',
+        'first_name',
         models.CharField()
       ), (
-        'last',
+        'last_name',
         models.CharField()
       ), (
         'photo',
         CloudinaryField(
-          'image',
+          'Photo',
           folder = CLOUDINARY_FOLDER
         )
       ), (
@@ -39,10 +39,10 @@ class Migration(migrations.Migration):
           blank = True
         )
       ), (
-        'phone',
+        'email_address',
         models.CharField()
       ), (
-        'email',
+        'phone_number',
         models.CharField()
       ), (
         'is_mvp',

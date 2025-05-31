@@ -26,90 +26,90 @@
         <div class="col-md-9">
           <!-- Home Main Image -->
           <img
-            src="{{ listing.photo_main.url }}"
+            src="{{ listing.exterior_photo.url }}"
             alt=""
             class="img-main img-fluid mb-3"
           >
           <!-- Thumbnails -->
           <div class="row mb-5 thumbs">
-            {% if listing.photo_1 %}
+            {% if listing.interior_photo_1 %}
               <div class="col-md-2">
                 <a
-                  href="{{ listing.photo_1.url }}"
+                  href="{{ listing.interior_photo_1.url }}"
                   data-lightbox="home-images"
                 >
                   <img
-                    src="{{ listing.photo_1.url }}"
+                    src="{{ listing.interior_photo_1.url }}"
                     alt=""
                     class="img-fluid"
                   >
                 </a>
               </div>
             {% endif %}
-            {% if listing.photo_2 %}
+            {% if listing.interior_photo_2 %}
               <div class="col-md-2">
                 <a
-                  href="{{ listing.photo_2.url }}"
+                  href="{{ listing.interior_photo_2.url }}"
                   data-lightbox="home-images"
                 >
                   <img
-                    src="{{ listing.photo_2.url }}"
+                    src="{{ listing.interior_photo_2.url }}"
                     alt=""
                     class="img-fluid"
                   >
                 </a>
               </div>
             {% endif %}
-            {% if listing.photo_3 %}
+            {% if listing.interior_photo_3 %}
               <div class="col-md-2">
                 <a
-                  href="{{ listing.photo_3.url }}"
+                  href="{{ listing.interior_photo_3.url }}"
                   data-lightbox="home-images"
                 >
                   <img
-                    src="{{ listing.photo_3.url }}"
+                    src="{{ listing.interior_photo_3.url }}"
                     alt=""
                     class="img-fluid"
                   >
                 </a>
               </div>
             {% endif %}
-            {% if listing.photo_4 %}
+            {% if listing.interior_photo_4 %}
               <div class="col-md-2">
                 <a
-                  href="{{ listing.photo_4.url }}"
+                  href="{{ listing.interior_photo_4.url }}"
                   data-lightbox="home-images"
                 >
                   <img
-                    src="{{ listing.photo_4.url }}"
+                    src="{{ listing.interior_photo_4.url }}"
                     alt=""
                     class="img-fluid"
                   >
                 </a>
               </div>
             {% endif %}
-            {% if listing.photo_5 %}
+            {% if listing.interior_photo_5 %}
               <div class="col-md-2">
                 <a
-                  href="{{ listing.photo_5.url }}"
+                  href="{{ listing.interior_photo_5.url }}"
                   data-lightbox="home-images"
                 >
                   <img
-                    src="{{ listing.photo_5.url }}"
+                    src="{{ listing.interior_photo_5.url }}"
                     alt=""
                     class="img-fluid"
                   >
                 </a>
               </div>
             {% endif %}
-            {% if listing.photo_6 %}
+            {% if listing.interior_photo_6 %}
               <div class="col-md-2">
                 <a
-                  href="{{ listing.photo_6.url }}"
+                  href="{{ listing.interior_photo_6.url }}"
                   data-lightbox="home-images"
                 >
                   <img
-                    src="{{ listing.photo_6.url }}"
+                    src="{{ listing.interior_photo_6.url }}"
                     alt=""
                     class="img-fluid"
                   >
@@ -164,13 +164,13 @@
                 <li class="list-group-item">
                   <i class="fas fa-calendar"></i> Listing Date:
                   <span class="float-right">
-                    {{ listing.list_date }}
+                    {{ listing.created_at }}
                   </span>
                 </li>
                 <li class="list-group-item">
                   <i class="fas fa-user"></i> Realtor:
                   <span class="float-right">
-                    {{ listing.realtor }}
+                    {{ listing.realtor_id }}
                   </span>
                 </li>
               </ul>
@@ -184,7 +184,7 @@
           </div>
         </div>
         <div class="col-md-3">
-          {% include 'partials/_realtor.html' with realtor=listing.realtor %}
+          {% include 'partials/_realtor.html' with realtor=listing.realtor_id %}
           <button
             class="btn-primary btn-block btn-lg"
             id="inquiry-button"
@@ -238,13 +238,12 @@
               <input
                 type="hidden"
                 name="user_id"
-                value="0"
               >
             {% endif %}
             <input
               type="hidden"
-              name="realtor_email"
-              value="{{ listing.realtor.email }}"
+              name="realtor_email_address"
+              value="{{ listing.realtor.email_address }}"
             >
             <input
               type="hidden"
@@ -253,28 +252,28 @@
             >
             <div class="form-group">
               <label
-                for="property_name"
+                for="lsting_title"
                 class="col-form-label"
               >
                 Property:
               </label>
               <input
                 type="text"
-                name="listing"
+                name="listing_title"
                 class="form-control"
                 value="{{ listing.title }}"
               >
             </div>
             <div class="form-group">
               <label
-                for="name"
+                for="first_name"
                 class="col-form-label"
               >
                 First name:
               </label>
               <input
                 type="text"
-                name="first"
+                name="first_name"
                 class="form-control"
                 {% if user.is_authenticated %}
                   value="{{ user.first_name }}"
@@ -284,14 +283,14 @@
             </div>
             <div class="form-group">
               <label
-                for="name"
+                for="last_name"
                 class="col-form-label"
               >
                 Last name:
               </label>
               <input
                 type="text"
-                name="last"
+                name="last_name"
                 class="form-control"
                 {% if user.is_authenticated %}
                   value="{{ user.last_name }}"
@@ -301,31 +300,31 @@
             </div>
             <div class="form-group">
               <label
-                for="email"
+                for="email_address"
                 class="col-form-label"
               >
                 Email:
               </label>
               <input
                 type="email"
-                name="email"
+                name="email_address"
                 class="form-control"
                 {% if user.is_authenticated %}
-                  value="{{ user.email }}"
+                  value="{{ user.email_address }}"
                 {% endif %}
                 required
               >
             </div>
             <div class="form-group">
               <label
-                for="phone"
+                for="phone_number"
                 class="col-form-label"
               >
                 Phone:
               </label>
               <input
                 type="text"
-                name="phone"
+                name="phone_number"
                 class="form-control"
               >
             </div>
