@@ -7,8 +7,8 @@ class RealtorAdmin(admin.ModelAdmin):
   list_display = (
     'first_name',
     'last_name',
-    'email_address',
-    'phone_number',
+    'email',
+    'phone',
     'is_mvp',
     'created_at',
     'updated_at'
@@ -26,7 +26,7 @@ class RealtorAdmin(admin.ModelAdmin):
     'updated_at'
   )
   list_per_page = 25
-  def email_address(
+  def email(
     self: object,
     realtor: Realtor
   ) -> SafeText:
@@ -34,7 +34,8 @@ class RealtorAdmin(admin.ModelAdmin):
       '<a href="mailto:{email}">{email}</a>',
       email = realtor.email_address
     )
-  def phone_number(
+  email.short_description = 'Email Address'
+  def phone(
     self: object,
     realtor: Realtor
   ) -> SafeText:
@@ -42,6 +43,7 @@ class RealtorAdmin(admin.ModelAdmin):
       '<a href="tel:{phone}">{phone}</a>',
       phone = realtor.phone_number
     )
+  phone.short_description = 'Phone Number'
 admin.site.register(
   Realtor,
   RealtorAdmin

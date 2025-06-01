@@ -8,10 +8,10 @@ class InquiryAdmin(admin.ModelAdmin):
   list_display = (
     'message',
     'listing_title',
-    'first_name',
-    'last_name',
-    'email_address',
-    'phone_number',
+    'first',
+    'last',
+    'email',
+    'phone',
     'created_at'
   )
   list_display_links = (
@@ -27,7 +27,7 @@ class InquiryAdmin(admin.ModelAdmin):
     'created_at'
   )
   list_per_page = 25
-  def first_name(
+  def first(
     self: object,
     inquiry: Inquiry
   ) -> SafeText | str:
@@ -41,7 +41,8 @@ class InquiryAdmin(admin.ModelAdmin):
       ),
       name = inquiry.first_name
     ) if inquiry.user_id is not None else inquiry.first_name
-  def last_name(
+  first.short_description = 'First Name'
+  def last(
     self: object,
     inquiry: Inquiry
   ) -> SafeText | str:
@@ -55,7 +56,8 @@ class InquiryAdmin(admin.ModelAdmin):
       ),
       name = inquiry.last_name
     ) if inquiry.user_id is not None else inquiry.last_name
-  def email_address(
+  last.short_description = 'Last Name'
+  def email(
     self: object,
     inquiry: Inquiry
   ) -> SafeText:
@@ -63,7 +65,8 @@ class InquiryAdmin(admin.ModelAdmin):
       '<a href="mailto:{email}">{email}</a>',
       email = inquiry.email_address
     )
-  def phone_number(
+  email.short_description = 'Email Address'
+  def phone(
     self: object,
     inquiry: Inquiry
   ) -> SafeText:
@@ -71,6 +74,7 @@ class InquiryAdmin(admin.ModelAdmin):
       '<a href="tel:{phone}">{phone}</a>',
       phone = inquiry.phone_number
     )
+  phone.short_description = 'Phone Number'
 admin.site.register(
   Inquiry,
   InquiryAdmin
