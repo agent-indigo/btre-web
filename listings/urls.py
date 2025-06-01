@@ -7,7 +7,7 @@ urlpatterns = [
     name = 'listings'
   ),
   path(
-    '<int:listing_id>',
+    '<uuid:listing_id>',
     listing,
     name = 'listing'
   ),

@@ -33,4 +33,4 @@ class Inquiry(models.Model):
     auto_now = True
   )
   def __str__(self: object) -> str:
-    return f'{self.first} {self.last}'
+    return f'{self.message} {self.listing_title} {self.created_at}'

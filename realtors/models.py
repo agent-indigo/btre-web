@@ -34,4 +34,4 @@ class Realtor(models.Model):
     auto_now = True
   )
   def __str__(self: object) -> str:
-    return f'{self.first} {self.last}'
+    return f'{self.first_name} {self.last_name}'

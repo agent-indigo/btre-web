@@ -83,7 +83,8 @@ class Listing(models.Model):
   )
   realtor_id = models.ForeignKey(
     Realtor,
-    on_delete = models.DO_NOTHING
+    on_delete = models.DO_NOTHING,
+    verbose_name = 'Realtor'
   )
   created_at = models.DateTimeField(
     auto_now_add = True
