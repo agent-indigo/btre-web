@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
         models.CharField()
       ),  (
         'email_address',
-        models.CharField()
+        models.EmailField()
       ), (
         'phone_number',
         models.CharField()

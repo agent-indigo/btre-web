@@ -22,7 +22,7 @@ class Realtor(models.Model):
   description = models.TextField(
     blank = True
   )
-  email_address = models.CharField()
+  email_address = models.EmailField()
   phone_number = models.CharField()
   is_mvp = models.BooleanField(
     default = False

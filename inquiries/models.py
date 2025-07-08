@@ -16,7 +16,7 @@ class Inquiry(models.Model):
   listing_id = models.IntegerField()
   first_name = models.CharField()
   last_name = models.CharField()
-  email_address = models.CharField()
+  email_address = models.EmailField()
   phone_number = models.CharField()
   message = models.TextField(
     blank = True

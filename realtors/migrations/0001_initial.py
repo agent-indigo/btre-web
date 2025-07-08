@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
         )
       ), (
         'email_address',
-        models.CharField()
+        models.EmailField()
       ), (
         'phone_number',
         models.CharField()
