@@ -32,5 +32,5 @@ class Inquiry(models.Model):
   updated_at = models.DateTimeField(
     auto_now = True
   )
-  def __str__(self: object) -> str:
+  def __str__(self: 'Inquiry') -> str:
     return f'{self.message} {self.listing_title} {self.created_at}'

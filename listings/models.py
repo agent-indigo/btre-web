@@ -92,5 +92,5 @@ class Listing(models.Model):
   updated_at = models.DateTimeField(
     auto_now = True
   )
-  def __str__(self: object) -> str:
+  def __str__(self: 'Listing') -> str:
     return self.title

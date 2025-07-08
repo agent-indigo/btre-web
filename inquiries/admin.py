@@ -28,7 +28,7 @@ class InquiryAdmin(admin.ModelAdmin):
   )
   list_per_page = 25
   def first(
-    self: object,
+    self: 'InquiryAdmin',
     inquiry: Inquiry
   ) -> SafeText | str:
     return format_html(
@@ -43,7 +43,7 @@ class InquiryAdmin(admin.ModelAdmin):
     ) if inquiry.user_id is not None else inquiry.first_name
   first.short_description = 'First Name'
   def last(
-    self: object,
+    self: 'InquiryAdmin',
     inquiry: Inquiry
   ) -> SafeText | str:
     return format_html(
@@ -58,7 +58,7 @@ class InquiryAdmin(admin.ModelAdmin):
     ) if inquiry.user_id is not None else inquiry.last_name
   last.short_description = 'Last Name'
   def email(
-    self: object,
+    self: 'InquiryAdmin',
     inquiry: Inquiry
   ) -> SafeText:
     return format_html(
@@ -67,7 +67,7 @@ class InquiryAdmin(admin.ModelAdmin):
     )
   email.short_description = 'Email Address'
   def phone(
-    self: object,
+    self: 'InquiryAdmin',
     inquiry: Inquiry
   ) -> SafeText:
     return format_html(

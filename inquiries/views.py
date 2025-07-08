@@ -21,7 +21,7 @@ def inquire(request: Request) -> HttpResponse:
           request,
           'You have an existing inquiry regarding this listing. Our realtor will reply soon!'
         )
-        return redirect('/listings/'+LISTING_ID)
+        return redirect(f'/listings/{LISTING_ID}')
       else:
         LISTING_TITLE = request.POST['listing_title']
         Inquiry(
@@ -48,4 +48,4 @@ def inquire(request: Request) -> HttpResponse:
           request,
           'Your inquiry has been sent to our realtor. They will reply soon!'
         )
-        return redirect('/listings/'+LISTING_ID)
+        return redirect(f'/listings/{LISTING_ID}')

@@ -27,7 +27,7 @@ class RealtorAdmin(admin.ModelAdmin):
   )
   list_per_page = 25
   def email(
-    self: object,
+    self: 'RealtorAdmin',
     realtor: Realtor
   ) -> SafeText:
     return format_html(
@@ -36,7 +36,7 @@ class RealtorAdmin(admin.ModelAdmin):
     )
   email.short_description = 'Email Address'
   def phone(
-    self: object,
+    self: 'RealtorAdmin',
     realtor: Realtor
   ) -> SafeText:
     return format_html(

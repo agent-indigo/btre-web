@@ -33,5 +33,5 @@ class Realtor(models.Model):
   updated_at = models.DateTimeField(
     auto_now = True
   )
-  def __str__(self: object) -> str:
+  def __str__(self: 'Realtor') -> str:
     return f'{self.first_name} {self.last_name}'

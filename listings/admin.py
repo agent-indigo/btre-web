@@ -63,7 +63,7 @@ class ListingAdmin(admin.ModelAdmin):
   )
   list_per_page = 25
   def realtor_first_name(
-    self: object,
+    self: 'ListingAdmin',
     listing: Listing
   ) -> SafeText:
     return format_html(
@@ -77,7 +77,7 @@ class ListingAdmin(admin.ModelAdmin):
       name = listing.realtor_id.first_name
     )
   def realtor_last_name(
-    self: object,
+    self: 'ListingAdmin',
     listing: Listing
   ) -> SafeText:
     return format_html(
