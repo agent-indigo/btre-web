@@ -4,7 +4,7 @@
 
 This is the BT Real Estate project from Brad Traversy's 2019 Python Django Dev to Deployment course on O'Reilly.
 
-I made the following modifications:
+## Modifications
 
 - Moved uploaded image storage to Cloudinary
 
