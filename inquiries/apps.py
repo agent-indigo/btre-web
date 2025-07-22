@@ -1,3 +1,9 @@
+"""
+Inquiries app config
+"""
 from django.apps import AppConfig
 class InquiriesConfig(AppConfig):
-  name = 'inquiries'
+    """
+    Inquiries app config
+    """
+    name = 'inquiries'

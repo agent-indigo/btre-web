@@ -1,3 +1,9 @@
+"""
+Accounts app config
+"""
 from django.apps import AppConfig
 class AccountsConfig(AppConfig):
-  name = 'accounts'
+    """
+    Accounts app config
+    """
+    name = 'accounts'

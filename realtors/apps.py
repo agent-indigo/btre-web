@@ -1,3 +1,9 @@
+"""
+Realtors app config
+"""
 from django.apps import AppConfig
 class RealtorsConfig(AppConfig):
-  name = 'realtors'
+    """
+    Realtors app config
+    """
+    name = 'realtors'

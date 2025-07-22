@@ -7,7 +7,5 @@ RUN source .venv/bin/activate && \
     pip install gunicorn && \
     python manage.py collectstatic && \
     python manage.py migrate
-EXPOSE 80
 EXPOSE 443
-EXPOSE 8000
-CMD [".venv/bin/gunicorn", "--bind", "0.0.0.0:8000", "btre.wsgi:application"]
+CMD [".venv/bin/gunicorn", "--bind", "0.0.0.0:443", "btre.wsgi:application"]

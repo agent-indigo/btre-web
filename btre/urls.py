@@ -19,30 +19,30 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from .settings import DEBUG, STATIC_URL, STATIC_ROOT
 urlpatterns = [
-  path(
-    '',
-    include('pages.urls')
-  ),
-  path(
-    'accounts/',
-    include('accounts.urls')
-  ),
-  path(
-    'admin/',
-    admin.site.urls
-  ),
-  path(
-    'inquiries/',
-    include('inquiries.urls')
-  ),
-  path(
-    'listings/',
-    include('listings.urls')
-  ),
+    path(
+        '',
+        include('pages.urls')
+    ),
+    path(
+        'accounts/',
+        include('accounts.urls')
+    ),
+    path(
+        'admin/',
+        admin.site.urls
+    ),
+    path(
+        'inquiries/',
+        include('inquiries.urls')
+    ),
+    path(
+        'listings/',
+        include('listings.urls')
+    ),
 ]
 # Serve static files only during development
-if DEBUG == True:
-  urlpatterns += static(
-    STATIC_URL,
-    document_root = STATIC_ROOT
-  )
+if DEBUG is True:
+    urlpatterns += static(
+        STATIC_URL,
+        document_root = STATIC_ROOT
+    )

@@ -1,3 +1,9 @@
+"""
+Pages app config
+"""
 from django.apps import AppConfig
 class PagesConfig(AppConfig):
-  name = 'pages'
+    """
+    Pages app config
+    """
+    name = 'pages'
