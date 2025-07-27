@@ -11,7 +11,7 @@ class InquiryAdmin(admin.ModelAdmin):
     """
     Inquiries app admin config
     """
-    list_display = (
+    list_display = [
         'message',
         'listing_title',
         'first',
@@ -19,11 +19,11 @@ class InquiryAdmin(admin.ModelAdmin):
         'email',
         'phone',
         'created_at'
-    )
-    list_display_links = (
-        'message',
-    )
-    search_fields = (
+    ]
+    list_display_links = [
+        'message'
+    ]
+    search_fields = [
         'message',
         'listing_title',
         'first_name',
@@ -31,7 +31,7 @@ class InquiryAdmin(admin.ModelAdmin):
         'email_address',
         'phone_number',
         'created_at'
-    )
+    ]
     list_per_page = 25
     def first(
         self: 'InquiryAdmin',

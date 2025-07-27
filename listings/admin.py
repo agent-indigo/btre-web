@@ -11,7 +11,7 @@ class ListingAdmin(admin.ModelAdmin):
     """
     Listings app admin config
     """
-    list_display = (
+    list_display = [
         'title',
         'address',
         'city',
@@ -28,11 +28,11 @@ class ListingAdmin(admin.ModelAdmin):
         'realtor_last_name',
         'created_at',
         'updated_at'
-    )
-    list_display_links = (
-        'title',
-    )
-    list_filter = (
+    ]
+    list_display_links = [
+        'title'
+    ]
+    list_filter = [
         'city',
         'state',
         'zipcode',
@@ -46,11 +46,11 @@ class ListingAdmin(admin.ModelAdmin):
         'realtor_id__last_name',
         'is_published',
         'created_at'
-    )
-    list_editable = (
-        'is_published',
-    )
-    search_fields = (
+    ]
+    list_editable = [
+        'is_published'
+    ]
+    search_fields = [
         'title',
         'address',
         'city',
@@ -66,7 +66,7 @@ class ListingAdmin(admin.ModelAdmin):
         'realtor_id__first_name',
         'realtor_id__last_name',
         'created_at'
-    )
+    ]
     list_per_page = 25
     def realtor_first_name(
         self: 'ListingAdmin',

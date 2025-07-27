@@ -10,7 +10,7 @@ class RealtorAdmin(admin.ModelAdmin):
     """
     Realtors app admin config
     """
-    list_display = (
+    list_display = [
         'first_name',
         'last_name',
         'email',
@@ -18,19 +18,19 @@ class RealtorAdmin(admin.ModelAdmin):
         'is_mvp',
         'created_at',
         'updated_at'
-    )
-    list_display_links = (
+    ]
+    list_display_links = [
         'first_name',
     '   last_name'
-    )
-    search_fields = (
+    ]
+    search_fields = [
         'first_name',
         'last_name',
         'email_address',
         'phone_number',
         'created_at',
         'updated_at'
-    )
+    ]
     list_per_page = 25
     def email(
         self: 'RealtorAdmin',
