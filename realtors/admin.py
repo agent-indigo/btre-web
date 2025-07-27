@@ -21,7 +21,7 @@ class RealtorAdmin(admin.ModelAdmin):
     ]
     list_display_links = [
         'first_name',
-    '   last_name'
+        'last_name'
     ]
     search_fields = [
         'first_name',
