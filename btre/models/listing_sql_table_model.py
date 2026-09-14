@@ -1,11 +1,11 @@
 """
 Listing SQL table model
 """
-from uuid import uuid4
 from django.db import models
 from cloudinary.models import CloudinaryField
+from .sql_model_base import SqlModelBase
 from ..settings import CLOUDINARY_FOLDER
-class Listing(models.Model):
+class Listing(SqlModelBase):
     """
     Listing SQL table model
     """
@@ -16,11 +16,6 @@ class Listing(models.Model):
         verbose_name = 'Listing'
         verbose_name_plural = f'{verbose_name}s'
         db_table = verbose_name_plural.lower()
-    id = models.UUIDField(
-        primary_key = True,
-        default = uuid4,
-        editable = False
-    )
     title = models.CharField()
     address = models.CharField()
     city = models.CharField()
@@ -87,10 +82,4 @@ class Listing(models.Model):
         on_delete = models.DO_NOTHING,
         verbose_name = 'Realtor',
         blank = True
-    )
-    created_at = models.DateTimeField(
-        auto_now_add = True
-    )
-    updated_at = models.DateTimeField(
-        auto_now = True
     )

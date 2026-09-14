@@ -1,9 +1,9 @@
 """
 Inquiry SQL table model
 """
-from uuid import uuid4
 from django.db import models
-class Inquiry(models.Model):
+from .sql_model_base import SqlModelBase
+class Inquiry(SqlModelBase):
     """
     Inquiry SQL table model
     """
@@ -14,11 +14,6 @@ class Inquiry(models.Model):
         verbose_name = 'Inquiry'
         verbose_name_plural = 'Inquiries'
         db_table = verbose_name_plural.lower()
-    id = models.UUIDField(
-        primary_key = True,
-        default = uuid4,
-        editable = False
-    )
     listing = models.ForeignKey(
         to = 'Listing',
         on_delete = models.CASCADE
@@ -32,10 +27,4 @@ class Inquiry(models.Model):
         to = 'auth.User',
         on_delete = models.CASCADE,
         blank = True
-    )
-    created_at = models.DateTimeField(
-        auto_now_add = True
-    )
-    updated_at = models.DateTimeField(
-        auto_now = True
     )
